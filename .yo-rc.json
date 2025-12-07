@@ -1,0 +1,20 @@
+{
+  "generator-jhipster": {
+    "applicationType": "monolith",
+    "authenticationType": "jwt",
+    "baseName": "citizenServices",
+    "buildTool": "maven",
+    "clientFramework": "react",
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "enableTranslation": true,
+    "entities": ["Directorate", "ServiceCategory", "CitizenService", "RequiredDocument", "ServiceFormTemplate"],
+    "jhipsterVersion": "8.11.0",
+    "jwtSecretKey": "Mzk3MmRjYmEwYmQ2ODRlYzZmNjdkNGVkMmRiNzY5N2E1Yjg3ZWRmNTYzMTNmNDkwOWExNzhmNTNiMzY3N2UyMWM3Nzc2ZjA0ODQyOGE2ZDIzYmNlMzliYjkzNmNlNWI2Mjk2NWZmOGE0NzkwYjllYzc5MjI0ODA5NDgyNzczNGY=",
+    "languages": ["ar-ly"],
+    "lastLiquibaseTimestamp": 1765142975000,
+    "nativeLanguage": "ar-ly",
+    "packageName": "gov.daraa.citizen",
+    "prodDatabaseType": "postgresql"
+  }
+}

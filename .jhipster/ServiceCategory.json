@@ -1,0 +1,53 @@
+{
+  "annotations": {
+    "changelogDate": "20251207212635"
+  },
+  "applications": ["citizenServices"],
+  "documentation": "تصنيف الخدمة (مثلاً: خدمات السجل المدني، خدمات البناء، خدمات الشكاوى...)\\nكل تصنيف تابع لمديرية واحدة.",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "200"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "1000"
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "ServiceCategory",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "citizenService",
+      "otherEntityRelationshipName": "category",
+      "relationshipName": "services",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "directorate",
+      "otherEntityRelationshipName": "serviceCategories",
+      "relationshipName": "directorate",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

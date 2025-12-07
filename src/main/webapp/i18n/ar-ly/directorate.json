@@ -1,0 +1,28 @@
+{
+  "citizenServicesApp": {
+    "directorate": {
+      "home": {
+        "title": "Directorates",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء Directorate جديد",
+        "createOrEditLabel": "إنشاء أو تعديل Directorate",
+        "notFound": "لم يتم العثور على Directorates"
+      },
+      "created": "Directorate جديد تم إنشاؤه بالمعرف {{ param }}",
+      "updated": "Directorate تم تحديثه بالمعرف {{ param }}",
+      "deleted": "Directorate تم حذفه بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف Directorate {{ id }}؟"
+      },
+      "detail": {
+        "title": "Directorate"
+      },
+      "id": "ID",
+      "code": "Code",
+      "name": "Name",
+      "description": "Description",
+      "active": "Active",
+      "serviceCategories": "Service Categories"
+    }
+  }
+}

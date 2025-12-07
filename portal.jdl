@@ -1,0 +1,120 @@
+application {
+  config {
+    baseName citizenServices
+    applicationType monolith
+    packageName gov.daraa.citizen
+    authenticationType jwt
+    buildTool maven
+    databaseType sql
+    devDatabaseType postgresql
+    prodDatabaseType postgresql
+    clientFramework react
+    enableTranslation true
+    nativeLanguage ar-ly
+    languages [ar-ly]
+  }
+  entities *
+}
+
+/**
+ * المديرية (مثلاً: مديرية المالية، مديرية الخدمات الفنية، مديرية الشؤون المدنية...)
+ */
+entity Directorate {
+  code String required unique maxlength(50)
+  name String required maxlength(200)
+  description String maxlength(1000)
+  active Boolean required
+}
+
+/**
+ * تصنيف الخدمة (مثلاً: خدمات السجل المدني، خدمات البناء، خدمات الشكاوى...)
+ * كل تصنيف تابع لمديرية واحدة.
+ */
+entity ServiceCategory {
+  code String required unique maxlength(50)
+  name String required maxlength(200)
+  description String maxlength(1000)
+  active Boolean required
+}
+
+/**
+ * خدمة المواطن
+ * تحتوي على التصنيف، الوصف، الزمن المقدر، الأوراق المطلوبة،
+ * وهل هي إلكترونية، وهل تتطلب حضور شخصي، وهل لها نموذج (كرتوني/ورقي) مرفق.
+ */
+entity CitizenService {
+  code String required unique maxlength(50)
+  name String required maxlength(200)
+  description TextBlob required
+  estimatedDuration Integer required min(1) // القيمة + وحدة الزمن من enum
+  estimatedDurationUnit EstimatedTimeUnit required
+  requiresPhysicalPresence Boolean required // هل تتطلب حضور شخصي
+  isElectronic Boolean required             // هل يمكن إنجازها إلكترونياً
+  hasSmartCard Boolean required             // هل لها نموذج/بطاقة/خدمة كرتونية
+  feesDescription String maxlength(1000)    // وصف الرسوم إن وجدت
+  active Boolean required
+}
+
+/**
+ * الأوراق المطلوبة لكل خدمة
+ */
+entity RequiredDocument {
+  name String required maxlength(200)
+  description String maxlength(1000)
+  mandatory Boolean required // هل الوثيقة إلزامية
+  orderIndex Integer min(0)  // لترتيب عرض الوثائق
+}
+
+/**
+ * نموذج مرفق مرتبط بالخدمة
+ * يستخدم ليقوم المواطن بتنزيل النموذج وتعبئته ثم رفعه مرة أخرى.
+ */
+entity ServiceFormTemplate {
+  name String required maxlength(200)
+  description String maxlength(1000)
+  file AnyBlob required // ملف النموذج (PDF, DOCX, ...)، JHipster ينشئ له الحقل fileContentType تلقائياً
+  active Boolean required
+  orderIndex Integer min(0) // لترتيب عرض النماذج
+}
+
+/**
+ * وحدات الزمن للمدة المقدرة
+ */
+enum EstimatedTimeUnit {
+  MINUTE,
+  HOUR,
+  DAY,
+  WEEK
+}
+
+/**************************************
+ * العلاقات
+ **************************************/
+
+// المديرية تحوي عدة تصنيفات
+relationship OneToMany {
+  Directorate{serviceCategories} to ServiceCategory{directorate}
+}
+
+// التصنيف يحوي عدة خدمات
+relationship OneToMany {
+  ServiceCategory{services} to CitizenService{category}
+}
+
+// الخدمة تحوي عدة أوراق مطلوبة
+relationship OneToMany {
+  CitizenService{requiredDocuments} to RequiredDocument{service}
+}
+
+// الخدمة تحوي عدة نماذج مرفقة
+relationship OneToMany {
+  CitizenService{formTemplates} to ServiceFormTemplate{service}
+}
+
+/**************************************
+ * الخيارات العامة
+ **************************************/
+
+dto * with mapstruct
+service all with serviceClass
+paginate * with pagination

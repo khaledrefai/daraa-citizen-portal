@@ -1,0 +1,29 @@
+{
+  "citizenServicesApp": {
+    "serviceFormTemplate": {
+      "home": {
+        "title": "Service Form Templates",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء Service Form Template جديد",
+        "createOrEditLabel": "إنشاء أو تعديل Service Form Template",
+        "notFound": "لم يتم العثور على Service Form Templates"
+      },
+      "created": "Service Form Template جديد تم إنشاؤه بالمعرف {{ param }}",
+      "updated": "Service Form Template تم تحديثه بالمعرف {{ param }}",
+      "deleted": "Service Form Template تم حذفه بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف Service Form Template {{ id }}؟"
+      },
+      "detail": {
+        "title": "Service Form Template"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "file": "File",
+      "active": "Active",
+      "orderIndex": "Order Index",
+      "service": "Service"
+    }
+  }
+}

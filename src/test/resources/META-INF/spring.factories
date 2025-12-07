@@ -1,0 +1,2 @@
+org.springframework.test.context.ContextCustomizerFactory = \
+    gov.daraa.citizen.config.SqlTestContainersSpringContextCustomizerFactory

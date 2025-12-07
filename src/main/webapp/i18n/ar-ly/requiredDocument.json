@@ -1,0 +1,28 @@
+{
+  "citizenServicesApp": {
+    "requiredDocument": {
+      "home": {
+        "title": "Required Documents",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء Required Document جديد",
+        "createOrEditLabel": "إنشاء أو تعديل Required Document",
+        "notFound": "لم يتم العثور على Required Documents"
+      },
+      "created": "Required Document جديد تم إنشاؤه بالمعرف {{ param }}",
+      "updated": "Required Document تم تحديثه بالمعرف {{ param }}",
+      "deleted": "Required Document تم حذفه بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف Required Document {{ id }}؟"
+      },
+      "detail": {
+        "title": "Required Document"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "mandatory": "Mandatory",
+      "orderIndex": "Order Index",
+      "service": "Service"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "annotations": {
+    "changelogDate": "20251207212835"
+  },
+  "applications": ["citizenServices"],
+  "documentation": "الأوراق المطلوبة لكل خدمة",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "200"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "1000"
+    },
+    {
+      "fieldName": "mandatory",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "orderIndex",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min"],
+      "fieldValidateRulesMin": "0"
+    }
+  ],
+  "name": "RequiredDocument",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "citizenService",
+      "otherEntityRelationshipName": "requiredDocuments",
+      "relationshipName": "service",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

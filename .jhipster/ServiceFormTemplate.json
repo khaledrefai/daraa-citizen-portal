@@ -1,0 +1,51 @@
+{
+  "annotations": {
+    "changelogDate": "20251207212935"
+  },
+  "applications": ["citizenServices"],
+  "documentation": "نموذج مرفق مرتبط بالخدمة\\nيستخدم ليقوم المواطن بتنزيل النموذج وتعبئته ثم رفعه مرة أخرى.",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "200"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "1000"
+    },
+    {
+      "fieldName": "file",
+      "fieldType": "AnyBlob",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "orderIndex",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["min"],
+      "fieldValidateRulesMin": "0"
+    }
+  ],
+  "name": "ServiceFormTemplate",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "citizenService",
+      "otherEntityRelationshipName": "formTemplates",
+      "relationshipName": "service",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

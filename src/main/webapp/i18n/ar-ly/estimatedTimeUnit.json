@@ -1,0 +1,11 @@
+{
+  "citizenServicesApp": {
+    "EstimatedTimeUnit": {
+      "null": "",
+      "MINUTE": "MINUTE",
+      "HOUR": "HOUR",
+      "DAY": "DAY",
+      "WEEK": "WEEK"
+    }
+  }
+}

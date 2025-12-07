@@ -1,0 +1,29 @@
+{
+  "citizenServicesApp": {
+    "serviceCategory": {
+      "home": {
+        "title": "Service Categories",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء Service Category جديد",
+        "createOrEditLabel": "إنشاء أو تعديل Service Category",
+        "notFound": "لم يتم العثور على Service Categories"
+      },
+      "created": "Service Category جديد تم إنشاؤه بالمعرف {{ param }}",
+      "updated": "Service Category تم تحديثه بالمعرف {{ param }}",
+      "deleted": "Service Category تم حذفه بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف Service Category {{ id }}؟"
+      },
+      "detail": {
+        "title": "Service Category"
+      },
+      "id": "ID",
+      "code": "Code",
+      "name": "Name",
+      "description": "Description",
+      "active": "Active",
+      "services": "Services",
+      "directorate": "Directorate"
+    }
+  }
+}

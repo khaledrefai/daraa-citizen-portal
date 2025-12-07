@@ -1,0 +1,93 @@
+{
+  "annotations": {
+    "changelogDate": "20251207212735"
+  },
+  "applications": ["citizenServices"],
+  "documentation": "خدمة المواطن\\nتحتوي على التصنيف، الوصف، الزمن المقدر، الأوراق المطلوبة،\\nوهل هي إلكترونية، وهل تتطلب حضور شخصي، وهل لها نموذج (كرتوني/ورقي) مرفق.",
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique", "maxlength"],
+      "fieldValidateRulesMaxlength": "50"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "200"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "TextBlob",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "estimatedDuration",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required", "min"],
+      "fieldValidateRulesMin": "1"
+    },
+    {
+      "fieldName": "estimatedDurationUnit",
+      "fieldType": "EstimatedTimeUnit",
+      "fieldTypeDocumentation": "وحدات الزمن للمدة المقدرة",
+      "fieldValidateRules": ["required"],
+      "fieldValues": "MINUTE,HOUR,DAY,WEEK"
+    },
+    {
+      "fieldName": "requiresPhysicalPresence",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "isElectronic",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "hasSmartCard",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "feesDescription",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "1000"
+    },
+    {
+      "fieldName": "active",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "CitizenService",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityName": "requiredDocument",
+      "otherEntityRelationshipName": "service",
+      "relationshipName": "requiredDocuments",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "serviceFormTemplate",
+      "otherEntityRelationshipName": "service",
+      "relationshipName": "formTemplates",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "serviceCategory",
+      "otherEntityRelationshipName": "services",
+      "relationshipName": "category",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}
