@@ -43,6 +43,7 @@
     "jest": "jest --coverage --logHeapUsage --maxWorkers=2 --config jest.conf.js",
     "jest:update": "npm run jest -- --updateSnapshot",
     "lint": "eslint .",
+    "lint:encoding": "node scripts/check-encoding.js",
     "lint:fix": "npm run lint -- --fix",
     "prepare": "husky",
     "prettier:check": "prettier --check \"{,src/**/,webpack/,.blueprint/**/}*.{md,json,yml,js,cjs,mjs,ts,cts,mts,java,html,tsx,css,scss}\"",
