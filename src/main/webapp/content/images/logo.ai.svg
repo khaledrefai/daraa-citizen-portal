@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" role="img" aria-labelledby="title desc">
+  <title id="title">شعار بوابة محافظة درعا</title>
+  <desc id="desc">شعار مبسط يعتمد ألوان الهوية الخضراء للبوابة</desc>
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#002623" />
+      <stop offset="50%" stop-color="#054239" />
+      <stop offset="100%" stop-color="#428177" />
+    </linearGradient>
+  </defs>
+  <rect width="220" height="220" rx="28" fill="url(#g1)" />
+  <path
+    d="M60 150c0-40 24-72 50-72s50 32 50 72c0 12-8 24-20 24H80c-12 0-20-12-20-24z"
+    fill="#e9f3f0"
+    opacity="0.12"
+  />
+  <path
+    d="M110 52c-32 0-58 26-58 58 0 22 12 41 30 51l-8 17a6 6 0 0 0 5.4 8.6h41.6a6 6 0 0 0 5.4-8.6l-7.9-16.8C156 151 168 131 168 110c0-32-26-58-58-58zm0 18a40 40 0 1 1 0 80 40 40 0 0 1 0-80z"
+    fill="#e9f3f0"
+  />
+  <circle cx="110" cy="110" r="18" fill="#e9f3f0" opacity="0.9" />
+  <path d="M102 106h16v30h-16z" fill="#002623" opacity="0.75" />
+</svg>

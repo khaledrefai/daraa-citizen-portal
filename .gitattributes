@@ -74,10 +74,9 @@ TODO            text
 *.tif           binary
 *.tiff          binary
 *.ico           binary
-# SVG treated as an asset (binary) by default. If you want to treat it as text,
-# comment-out the following line and uncomment the line after.
-*.svg           binary
-#*.svg          text
+# SVGs are stored as text so they can be reviewed in diffs.
+#*.svg           binary
+*.svg          text
 *.eps           binary
 
 # These files are binary and should be left untouched
