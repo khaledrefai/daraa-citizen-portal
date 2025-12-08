@@ -1,0 +1,92 @@
+.citizen-page {
+  padding: 2rem 1rem 3rem;
+}
+
+.citizen-hero {
+  background: #f5f9fc;
+  border: 1px solid #e3ecf5;
+  border-radius: 1rem;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.citizen-search {
+  max-width: 520px;
+  margin-top: 1rem;
+}
+
+.category-card {
+  height: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid #eef1f7;
+  box-shadow: 0 0.5rem 1rem rgba(13, 110, 253, 0.06);
+}
+
+.category-card h3 {
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.service-chip {
+  background: #f8fbff;
+  border: 1px solid #e3ecf5;
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-chip .badge {
+  margin-inline-start: 0.35rem;
+}
+
+.service-meta {
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.service-section {
+  margin-top: 1.5rem;
+}
+
+.service-pillars {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.service-detail-card {
+  border-radius: 0.75rem;
+  border: 1px solid #e7edf5;
+  background: #fff;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.service-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.service-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed #e7edf5;
+}
+
+.service-list li:last-child {
+  border-bottom: 0;
+}
+
+.citizen-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .citizen-hero {
+    padding: 1.25rem;
+  }
+}

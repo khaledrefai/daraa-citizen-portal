@@ -1,10 +1,57 @@
-/* ==========================================================================
-Main page styles
-========================================================================== */
-.hipster {
-  display: inline-block;
-  width: 100%;
-  height: 497px;
-  background: url('/content/images/jhipster_family_member_2.svg') no-repeat center top;
-  background-size: contain;
+.home-container {
+  padding: 3rem 1rem;
+}
+
+.home-hero {
+  background: linear-gradient(120deg, #0d6efd 0%, #0bb2d4 60%, #e9f6ff 100%);
+  color: #fff;
+  border-radius: 1.25rem;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+.home-eyebrow {
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+
+.home-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.home-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.5rem;
+}
+
+.home-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .home-hero {
+    padding: 1.5rem;
+  }
+
+  .home-actions {
+    flex-direction: column;
+  }
 }
