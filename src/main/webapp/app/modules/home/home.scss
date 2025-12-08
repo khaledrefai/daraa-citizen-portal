@@ -1,22 +1,43 @@
 .home-container {
   padding: 3rem 1rem;
+  color: var(--color-text);
 }
 
 .home-hero {
-  background: linear-gradient(120deg, #0d6efd 0%, #0bb2d4 60%, #e9f6ff 100%);
-  color: #fff;
-  border-radius: 1.25rem;
+  background: linear-gradient(135deg, rgba(0, 38, 35, 0.9) 0%, rgba(5, 66, 57, 0.92) 45%, rgba(66, 129, 119, 0.92) 100%);
+  color: #e9f3f0;
+  border-radius: 1.5rem;
   padding: 2.5rem;
   margin-bottom: 2rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(233, 243, 240, 0.12);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(233, 243, 240, 0.08), transparent 35%),
+    radial-gradient(circle at 80% 0%, rgba(233, 243, 240, 0.05), transparent 30%);
+  pointer-events: none;
+}
+
+.home-hero h1 {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
 }
 
 .home-eyebrow {
-  letter-spacing: 0.05em;
-  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-weight: 800;
   text-transform: uppercase;
-  opacity: 0.9;
+  opacity: 0.95;
   margin-bottom: 0.5rem;
+  color: rgba(233, 243, 240, 0.9);
 }
 
 .home-actions {
@@ -26,10 +47,25 @@
   margin: 1.5rem 0;
 }
 
+.home-actions .btn-lg {
+  border-radius: 999px;
+  padding-inline: 1.4rem;
+  box-shadow: 0 0.75rem 1.25rem rgba(0, 38, 35, 0.22);
+}
+
 .home-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+}
+
+.home-badges .badge {
+  font-size: 0.95rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  background-color: rgba(233, 243, 240, 0.18);
+  color: #e9f3f0;
+  border: 1px solid rgba(233, 243, 240, 0.25);
 }
 
 .home-list {
@@ -41,9 +77,35 @@
 .home-list li {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
+  gap: 0.65rem;
+  margin-bottom: 0.65rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.home-list .text-primary {
+  color: var(--color-secondary) !important;
+}
+
+.card .btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.card .btn-outline-primary {
+  color: var(--color-secondary);
+  border-color: var(--color-secondary);
+}
+
+.card .btn-outline-primary:hover {
+  background-color: var(--color-secondary);
+  color: #f5f7f6;
+}
+
+.alert-info,
+.alert-success {
+  border-radius: 0.75rem;
+  border: 1px solid rgba(0, 38, 35, 0.08);
 }
 
 @media (max-width: 768px) {

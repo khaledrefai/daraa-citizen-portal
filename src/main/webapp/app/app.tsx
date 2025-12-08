@@ -43,7 +43,7 @@ export const App = () => {
   return (
     <BrowserRouter basename={baseHref}>
       <div className="app-container" style={{ paddingTop }}>
-        <ToastContainer position="top-left" className="toastify-container" toastClassName="toastify-toast" />
+        <ToastContainer position="top-right" rtl className="toastify-container" toastClassName="toastify-toast" />
         <ErrorBoundary>
           <Header
             isAuthenticated={isAuthenticated}

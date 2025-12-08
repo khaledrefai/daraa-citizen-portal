@@ -1,6 +1,6 @@
 {
   "global": {
-    "title": "CitizenServices",
+    "title": "بوابة خدمات المواطنين",
     "browsehappy": "أنت تستخدم متصفح <strong>قديم</strong> . من فضلك <a href=\"http://browsehappy.com/?locale=en\">قم بتحديث متصفحك</a> لتحسين تجربتك.",
     "menu": {
       "home": "الصفحة الرئيسية",
@@ -9,11 +9,11 @@
       "entities": {
         "main": "الكيانات",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
-        "directorate": "Directorate",
-        "serviceCategory": "Service Category",
-        "citizenService": "Citizen Service",
-        "requiredDocument": "Required Document",
-        "serviceFormTemplate": "Service Form Template"
+        "directorate": "المديرية",
+        "serviceCategory": "تصنيف الخدمة",
+        "citizenService": "خدمة المواطنين",
+        "requiredDocument": "المستندات المطلوبة",
+        "serviceFormTemplate": "نموذج الخدمة"
       },
       "account": {
         "main": "الحساب",
@@ -41,8 +41,8 @@
     "form": {
       "username.label": "اسم المستخدم",
       "username.placeholder": "إسم المستخدم الخاص بك",
-      "currentpassword.label": "Current password",
-      "currentpassword.placeholder": "Current password",
+      "currentpassword.label": "كلمة المرور الحالية",
+      "currentpassword.placeholder": "أدخل كلمة المرور الحالية",
       "newpassword.label": "كلمة السر الجديدة",
       "newpassword.placeholder": "كلمة السر الجديدة",
       "confirmpassword.label": "تأكيد كلمة السر الجديدة",
@@ -91,7 +91,8 @@
     "ribbon": {
       "dev": "تطوير"
     },
-    "item-count": "يعرض {{first}} - {{second}} من {{total}} البيانات."
+    "item-count": "يعرض {{first}} - {{second}} من {{total}} البيانات.",
+    "footer": "© محافظة درعا - جميع الحقوق محفوظة"
   },
   "entity": {
     "action": {
@@ -104,7 +105,7 @@
       "open": "فتح",
       "save": "حفظ",
       "view": "عرض",
-      "show": "Show {{otherEntity}}"
+      "show": "عرض {{otherEntity}}"
     },
     "detail": {
       "field": "حقل",
@@ -126,9 +127,9 @@
       "datetimelocal": "هذا الحقل يجب أن يكون تاريخ ووقت."
     },
     "filters": {
-      "set": "Following filters are set",
-      "clear": "Clear filter",
-      "clearAll": "Clear all filters"
+      "set": "تم تطبيق المرشحات التالية",
+      "clear": "إزالة المرشح",
+      "clearAll": "إزالة كل المرشحات"
     }
   },
   "error": {
@@ -140,13 +141,13 @@
     "userexists": "اسم الدخول سبق استخدامه!",
     "emailexists": "البريد الالكتروني قيد الاستخدام بالفعل!",
     "idexists": "{{ entityName }} جديد لا يمكن أن يكون له معرف بالفعل",
-    "idnull": "Invalid ID",
-    "idinvalid": "Invalid Id",
-    "idnotfound": "ID cannot be found",
+    "idnull": "معرّف غير صالح",
+    "idinvalid": "معرّف غير صحيح",
+    "idnotfound": "لا يمكن العثور على المعرّف",
     "file": {
-      "could.not.extract": "Could not extract file",
-      "not.image": "File was expected to be an image but was found to be \"{{ fileType }}\""
+      "could.not.extract": "تعذر استخراج الملف",
+      "not.image": "يجب أن يكون الملف صورة ولكن النوع هو \"{{ fileType }}\""
     }
   },
-  "footer": "هنا يضع الفووتر"
+  "footer": "© محافظة درعا - جميع الحقوق محفوظة"
 }

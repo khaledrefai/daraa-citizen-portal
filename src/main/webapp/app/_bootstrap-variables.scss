@@ -1,9 +1,24 @@
 /*
-* Bootstrap overrides https://v4-alpha.getbootstrap.com/getting-started/options/
-* All values defined in bootstrap source
-* https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss can be overwritten here
-* Make sure not to add !default to values here
-*/
+ * Bootstrap overrides https://v4-alpha.getbootstrap.com/getting-started/options/
+ * All values defined in bootstrap source
+ * https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss can be overwritten here
+ * Make sure not to add !default to values here
+ */
+
+@import url('https://fonts.cdnfonts.com/css/qumra');
+
+// Palette
+$primary: #428177;
+$secondary: #054239;
+$dark: #002623;
+$body-bg: #f5f7f6;
+$body-color: #0f2b24;
+$link-color: $primary;
+$link-hover-color: lighten($primary, 8%);
+
+// Typography
+$font-family-base: 'Qumra', 'Cairo', 'Noto Naskh Arabic', 'Tahoma', sans-serif;
+$headings-font-family: $font-family-base;
 
 // Options:
 // Quickly modify global styling by enabling or disabling optional features.
@@ -18,11 +33,9 @@ $enable-print-styles: true;
 // Components:
 // Define common padding and border radius sizes and more.
 
-$border-radius: 0.15rem;
-$border-radius-lg: 0.125rem;
-$border-radius-sm: 0.1rem;
+$border-radius: 0.35rem;
+$border-radius-lg: 0.5rem;
+$border-radius-sm: 0.25rem;
 
 // Body:
 // Settings for the `<body>` element.
-
-$body-bg: #ffffff;
