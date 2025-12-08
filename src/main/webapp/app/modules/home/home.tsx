@@ -3,7 +3,8 @@ import './home.scss';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Translate } from 'react-jhipster';
-import { Alert, Col, Row } from 'reactstrap';
+import { Badge, Card, CardBody, Col, Row } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useAppSelector } from 'app/config/store';
 
@@ -11,89 +12,112 @@ export const Home = () => {
   const account = useAppSelector(state => state.authentication.account);
 
   return (
-    <Row>
-      <Col md="3" className="pad">
-        <span className="hipster rounded" />
-      </Col>
-      <Col md="9">
-        <h1 className="display-4">
-          <Translate contentKey="home.title">Welcome, Java Hipster!</Translate>
+    <div className="home-container">
+      <div className="home-hero">
+        <p className="home-eyebrow">
+          <Translate contentKey="home.eyebrow" />
+        </p>
+        <h1>
+          <Translate contentKey="home.title" />
         </h1>
         <p className="lead">
-          <Translate contentKey="home.subtitle">This is your homepage</Translate>
+          <Translate contentKey="home.subtitle" />
         </p>
-        {account?.login ? (
-          <div>
-            <Alert color="success">
-              <Translate contentKey="home.logged.message" interpolate={{ username: account.login }}>
-                You are logged in as user {account.login}.
-              </Translate>
-            </Alert>
-          </div>
-        ) : (
-          <div>
-            <Alert color="warning">
-              <Translate contentKey="global.messages.info.authenticated.prefix">If you want to </Translate>
+        <div className="home-actions">
+          <Link to="/citizen" className="btn btn-primary btn-lg">
+            <FontAwesomeIcon icon="search" />
+            <span className="ms-2">
+              <Translate contentKey="home.actions.citizen" />
+            </span>
+          </Link>
+          <Link to="/login" className="btn btn-outline-light btn-lg">
+            <FontAwesomeIcon icon="lock" />
+            <span className="ms-2">
+              <Translate contentKey="home.actions.admin" />
+            </span>
+          </Link>
+        </div>
+        <div className="home-badges">
+          <Badge color="info">
+            <Translate contentKey="home.badges.curated" />
+          </Badge>
+          <Badge color="success">
+            <Translate contentKey="home.badges.realtime" />
+          </Badge>
+          <Badge color="warning">
+            <Translate contentKey="home.badges.arabic" />
+          </Badge>
+        </div>
+      </div>
 
-              <Link to="/login" className="alert-link">
-                <Translate contentKey="global.messages.info.authenticated.link"> sign in</Translate>
+      <Row className="g-4">
+        <Col md="7">
+          <Card className="shadow-sm">
+            <CardBody>
+              <h2 className="h4 mb-3">
+                <Translate contentKey="home.citizenCard.title" />
+              </h2>
+              <p className="text-muted">
+                <Translate contentKey="home.citizenCard.subtitle" />
+              </p>
+              <ul className="home-list">
+                <li>
+                  <FontAwesomeIcon icon="th-list" className="text-primary" />
+                  <span className="ms-2">
+                    <Translate contentKey="home.citizenCard.items.catalog" />
+                  </span>
+                </li>
+                <li>
+                  <FontAwesomeIcon icon="road" className="text-primary" />
+                  <span className="ms-2">
+                    <Translate contentKey="home.citizenCard.items.steps" />
+                  </span>
+                </li>
+                <li>
+                  <FontAwesomeIcon icon="cloud" className="text-primary" />
+                  <span className="ms-2">
+                    <Translate contentKey="home.citizenCard.items.downloads" />
+                  </span>
+                </li>
+              </ul>
+              <Link to="/citizen" className="btn btn-primary">
+                <Translate contentKey="home.citizenCard.cta" />
               </Link>
-              <Translate contentKey="global.messages.info.authenticated.suffix">
-                , you can try the default accounts:
-                <br />- Administrator (login=&quot;admin&quot; and password=&quot;admin&quot;)
-                <br />- User (login=&quot;user&quot; and password=&quot;user&quot;).
-              </Translate>
-            </Alert>
-
-            <Alert color="warning">
-              <Translate contentKey="global.messages.info.register.noaccount">You do not have an account yet?</Translate>&nbsp;
-              <Link to="/account/register" className="alert-link">
-                <Translate contentKey="global.messages.info.register.link">Register a new account</Translate>
+            </CardBody>
+          </Card>
+        </Col>
+        <Col md="5">
+          <Card className="shadow-sm h-100">
+            <CardBody>
+              <h2 className="h4 mb-3">
+                <Translate contentKey="home.adminCard.title" />
+              </h2>
+              <p className="text-muted">
+                <Translate contentKey="home.adminCard.subtitle" />
+              </p>
+              {account?.login ? (
+                <div className="alert alert-success">
+                  <FontAwesomeIcon icon="user" />
+                  <span className="ms-2">
+                    <Translate contentKey="home.adminCard.logged" interpolate={{ username: account.login }} />
+                  </span>
+                </div>
+              ) : (
+                <div className="alert alert-info">
+                  <FontAwesomeIcon icon="lock" />
+                  <span className="ms-2">
+                    <Translate contentKey="home.adminCard.loginHint" />
+                  </span>
+                </div>
+              )}
+              <Link to="/login" className="btn btn-outline-primary">
+                <Translate contentKey="home.adminCard.cta" />
               </Link>
-            </Alert>
-          </div>
-        )}
-        <p>
-          <Translate contentKey="home.question">If you have any question on JHipster:</Translate>
-        </p>
-
-        <ul>
-          <li>
-            <a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer">
-              <Translate contentKey="home.link.homepage">JHipster homepage</Translate>
-            </a>
-          </li>
-          <li>
-            <a href="https://stackoverflow.com/tags/jhipster/info" target="_blank" rel="noopener noreferrer">
-              <Translate contentKey="home.link.stackoverflow">JHipster on Stack Overflow</Translate>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" rel="noopener noreferrer">
-              <Translate contentKey="home.link.bugtracker">JHipster bug tracker</Translate>
-            </a>
-          </li>
-          <li>
-            <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">
-              <Translate contentKey="home.link.chat">JHipster public chat room</Translate>
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/jhipster" target="_blank" rel="noopener noreferrer">
-              <Translate contentKey="home.link.follow">follow @jhipster on Twitter</Translate>
-            </a>
-          </li>
-        </ul>
-
-        <p>
-          <Translate contentKey="home.like">If you like JHipster, do not forget to give us a star on</Translate>{' '}
-          <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">
-            GitHub
-          </a>
-          !
-        </p>
-      </Col>
-    </Row>
+            </CardBody>
+          </Card>
+        </Col>
+      </Row>
+    </div>
   );
 };
 
