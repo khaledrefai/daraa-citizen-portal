@@ -7,8 +7,14 @@ services:
       - _JAVA_OPTIONS=-Xmx512m -Xms256m
       - SPRING_PROFILES_ACTIVE=prod,api-docs
       - MANAGEMENT_PROMETHEUS_METRICS_EXPORT_ENABLED=true
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgresql:5432/citizenServices
-      - SPRING_LIQUIBASE_URL=jdbc:postgresql://postgresql:5432/citizenServices
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://173.212.199.139:5432/citizenServices
+      - SPRING_DATASOURCE_USERNAME=SyriaBazaar
+      - 'SPRING_DATASOURCE_PASSWORD=$yri@B@z@@r25'
+      - SPRING_LIQUIBASE_URL=jdbc:postgresql://173.212.199.139:5432/citizenServices
+      - SPRING_LIQUIBASE_USER=SyriaBazaar
+      - 'SPRING_LIQUIBASE_PASSWORD=$yri@B@z@@r25'
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DEFAULT_SCHEMA=citizenServices
+      - SPRING_LIQUIBASE_DEFAULT_SCHEMA=citizenServices
     ports:
       - 127.0.0.1:8080:8080
     healthcheck:

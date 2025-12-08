@@ -32,15 +32,20 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:postgresql://localhost:5432/citizenServices
-    username: citizenServices
-    password:
+    url: jdbc:postgresql://173.212.199.139:5432/citizenServices
+    username: SyriaBazaar
+    password: '$yri@B@z@@r25'
     hikari:
       poolName: Hikari
       auto-commit: false
+      schema: citizenServices
+  jpa:
+    properties:
+      hibernate.default_schema: citizenServices
   liquibase:
     # Remove 'faker' if you do not want the sample data to be loaded automatically
     contexts: dev, faker
+    default-schema: citizenServices
   mail:
     host: localhost
     port: 25
