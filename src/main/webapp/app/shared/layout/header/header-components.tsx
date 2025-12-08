@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const BrandIcon = props => (
   <div {...props} className="brand-icon">
-    <img src="content/images/logo.ai.svg" alt="شعار بوابة درعا" />
+    <img src="content/images/logo.ai.svg" alt="Daraa Citizen Portal logo" />
   </div>
 );
 
@@ -15,7 +15,7 @@ export const Brand = () => (
   <NavbarBrand tag={Link} to="/" className="brand-logo">
     <BrandIcon />
     <span className="brand-title">
-      <Translate contentKey="global.title">بوابة خدمات المواطنين</Translate>
+      <Translate contentKey="global.title" />
     </span>
     <span className="navbar-version">{VERSION.toLowerCase().startsWith('v') ? VERSION : `v${VERSION}`}</span>
   </NavbarBrand>
@@ -26,7 +26,7 @@ export const Home = () => (
     <NavLink tag={Link} to="/" className="d-flex align-items-center">
       <FontAwesomeIcon icon="home" />
       <span>
-        <Translate contentKey="global.menu.home">الصفحة الرئيسية</Translate>
+        <Translate contentKey="global.menu.home" />
       </span>
     </NavLink>
   </NavItem>
@@ -37,7 +37,7 @@ export const CitizenPortalLink = () => (
     <NavLink tag={Link} to="/citizen" className="d-flex align-items-center">
       <FontAwesomeIcon icon="tasks" />
       <span>
-        <Translate contentKey="global.menu.citizenPortal">دليل المواطنين</Translate>
+        <Translate contentKey="global.menu.citizenPortal" />
       </span>
     </NavLink>
   </NavItem>
