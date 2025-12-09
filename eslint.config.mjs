@@ -19,6 +19,15 @@ export default tseslint.config(
   { ignores: ['target/classes/static/', 'target/'] },
   eslint.configs.recommended,
   {
+    files: ['src/main/webapp/**/*.{js,cjs,mjs}'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        MockApi: 'readonly',
+      },
+    },
+  },
+  {
     files: ['**/*.{js,cjs,mjs}'],
     rules: {
       'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
