@@ -3,9 +3,12 @@ package gov.daraa.citizen.service.dto;
 import gov.daraa.citizen.domain.enumeration.EstimatedTimeUnit;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Lob;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A DTO for the {@link gov.daraa.citizen.domain.CitizenService} entity.
@@ -52,6 +55,12 @@ public class CitizenServiceDTO implements Serializable {
     private Boolean active;
 
     private ServiceCategoryDTO category;
+
+    @Valid
+    private Set<RequiredDocumentDTO> requiredDocuments = new HashSet<>();
+
+    @Valid
+    private Set<ServiceFormTemplateDTO> formTemplates = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -149,6 +158,22 @@ public class CitizenServiceDTO implements Serializable {
         this.category = category;
     }
 
+    public Set<RequiredDocumentDTO> getRequiredDocuments() {
+        return requiredDocuments;
+    }
+
+    public void setRequiredDocuments(Set<RequiredDocumentDTO> requiredDocuments) {
+        this.requiredDocuments = requiredDocuments;
+    }
+
+    public Set<ServiceFormTemplateDTO> getFormTemplates() {
+        return formTemplates;
+    }
+
+    public void setFormTemplates(Set<ServiceFormTemplateDTO> formTemplates) {
+        this.formTemplates = formTemplates;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -186,6 +211,8 @@ public class CitizenServiceDTO implements Serializable {
             ", feesDescription='" + getFeesDescription() + "'" +
             ", active='" + getActive() + "'" +
             ", category=" + getCategory() +
+            ", requiredDocuments=" + getRequiredDocuments() +
+            ", formTemplates=" + getFormTemplates() +
             "}";
     }
 }

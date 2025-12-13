@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const BrandIcon = props => (
   <div {...props} className="brand-icon">
-    <img src="content/images/logo.ai.svg" alt="Daraa Citizen Portal logo" />
+    <img src="assets/images/logo.ai.svg" alt="شعار بوابة درعا" />
   </div>
 );
 

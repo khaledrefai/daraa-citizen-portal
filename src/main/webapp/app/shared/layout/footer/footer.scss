@@ -1,7 +1,7 @@
 .footer {
   background: linear-gradient(90deg, rgba(0, 38, 35, 0.9) 0%, rgba(5, 66, 57, 0.9) 60%, rgba(66, 129, 119, 0.9) 100%);
   color: #e9f3f0;
-  text-align: center;
+  text-align: right;
   padding: 1.25rem 0;
   margin-top: 1.5rem;
   border-top: 2px solid rgba(233, 243, 240, 0.15);
@@ -11,5 +11,38 @@
     margin: 0;
     font-weight: 700;
     letter-spacing: 0.5px;
+  }
+
+  .footer-brand {
+    gap: 0.85rem;
+  }
+
+  .footer-logo {
+    width: 54px;
+    height: auto;
+    filter: drop-shadow(0 0.25rem 0.5rem rgba(0, 0, 0, 0.2));
+    background-color: rgba(233, 243, 240, 0.12);
+    border-radius: 0.85rem;
+    padding: 0.35rem;
+    border: 1px solid rgba(233, 243, 240, 0.2);
+  }
+
+  .footer-subtitle {
+    font-weight: 500;
+    color: rgba(233, 243, 240, 0.85);
+  }
+
+  .footer-copy {
+    color: rgba(233, 243, 240, 0.9);
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    text-align: center;
+
+    .footer-brand {
+      justify-content: center;
+      margin-bottom: 0.75rem;
+    }
   }
 }

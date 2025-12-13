@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { Alert, Badge, Button, Col, Row, Spinner } from 'reactstrap';
-import { Translate, translate } from 'react-jhipster';
+import { translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { ICitizenService } from 'app/shared/model/citizen-service.model';
@@ -57,18 +57,14 @@ const CitizenServiceDetails = () => {
 
   return (
     <div className="citizen-page">
-      <div className="d-flex justify-content-between align-items-center mb-3">
+      <div className="detail-page-header">
         <div>
-          <p className="text-muted mb-1">
-            <Translate contentKey="citizenPortal.breadcrumb" />
-          </p>
+          <p className="text-muted mb-1">العودة إلى بوابة المواطن</p>
           <h1 className="h3 mb-0">{service?.name || translate('citizenPortal.loading')}</h1>
         </div>
-        <Link to="/citizen" className="btn btn-outline-secondary">
+        <Link to="/citizen" className="btn btn-outline-secondary d-flex align-items-center gap-1">
           <FontAwesomeIcon icon="arrow-left" />
-          <span className="ms-2">
-            <Translate contentKey="citizenPortal.actions.back" />
-          </span>
+          <span>رجوع للخدمات</span>
         </Link>
       </div>
 
@@ -78,25 +74,19 @@ const CitizenServiceDetails = () => {
         </div>
       )}
 
-      {error && (
-        <Alert color="danger">
-          <Translate contentKey={error} />
-        </Alert>
-      )}
+      {error && <Alert color="danger">{translate(error)}</Alert>}
 
       {!loading && service && (
         <>
           <Row className="g-3 service-section">
             <Col md="8">
               <div className="service-detail-card">
-                <h2 className="h5 mb-2">
-                  <Translate contentKey="citizenPortal.sections.overview" />
-                </h2>
+                <h2 className="h5 mb-2">نبذة عن الخدمة</h2>
                 <p className="text-muted mb-3">{service.description}</p>
 
                 <div className="d-flex flex-wrap gap-2 mb-2">
                   <Badge color="light" className="text-primary">
-                    <Translate contentKey="citizenPortal.serviceCode" interpolate={{ code: service.code }} />
+                    رمز الخدمة: {service.code}
                   </Badge>
                   {renderDuration() && (
                     <Badge color="info">
@@ -104,41 +94,22 @@ const CitizenServiceDetails = () => {
                       <span className="ms-1">{renderDuration()}</span>
                     </Badge>
                   )}
-                  {service.isElectronic && (
-                    <Badge color="success">
-                      <Translate contentKey="citizenPortal.flags.electronic" />
-                    </Badge>
-                  )}
-                  {service.requiresPhysicalPresence && (
-                    <Badge color="warning">
-                      <Translate contentKey="citizenPortal.flags.inPerson" />
-                    </Badge>
-                  )}
-                  {service.hasSmartCard && (
-                    <Badge color="info">
-                      <Translate contentKey="citizenPortal.flags.smartCard" />
-                    </Badge>
-                  )}
+                  {service.isElectronic && <Badge color="success">إلكترونية</Badge>}
+                  {service.requiresPhysicalPresence && <Badge color="warning">تحتاج حضور</Badge>}
+                  {service.hasSmartCard && <Badge color="info">تحتاج بطاقة ذكية</Badge>}
                 </div>
 
                 {service.feesDescription && (
                   <p className="mb-0">
-                    <strong>
-                      <Translate contentKey="citizenPortal.fees" />
-                    </strong>{' '}
-                    {service.feesDescription}
+                    <strong>الرسوم:</strong> {service.feesDescription}
                   </p>
                 )}
               </div>
 
               <div className="service-detail-card">
-                <h2 className="h5 mb-3">
-                  <Translate contentKey="citizenPortal.sections.requirements" />
-                </h2>
+                <h2 className="h5 mb-3">المستندات المطلوبة</h2>
                 {documents.length === 0 ? (
-                  <p className="text-muted mb-0">
-                    <Translate contentKey="citizenPortal.documents.none" />
-                  </p>
+                  <p className="text-muted mb-0">لا توجد مستندات مرتبطة بهذه الخدمة حالياً.</p>
                 ) : (
                   <ul className="service-list">
                     {documents.map(document => (
@@ -148,15 +119,7 @@ const CitizenServiceDetails = () => {
                             <p className="fw-semibold mb-1">{document.name}</p>
                             {document.description && <p className="text-muted mb-1">{document.description}</p>}
                           </div>
-                          {document.mandatory ? (
-                            <Badge color="danger">
-                              <Translate contentKey="citizenPortal.documents.required" />
-                            </Badge>
-                          ) : (
-                            <Badge color="secondary">
-                              <Translate contentKey="citizenPortal.documents.optional" />
-                            </Badge>
-                          )}
+                          {document.mandatory ? <Badge color="danger">مطلوب</Badge> : <Badge color="secondary">اختياري</Badge>}
                         </div>
                       </li>
                     ))}
@@ -166,47 +129,33 @@ const CitizenServiceDetails = () => {
             </Col>
             <Col md="4">
               <div className="service-detail-card">
-                <h2 className="h5 mb-2">
-                  <Translate contentKey="citizenPortal.sections.steps" />
-                </h2>
-                <p className="text-muted">
-                  <Translate contentKey="citizenPortal.steps.description" />
-                </p>
+                <h2 className="h5 mb-2">خطوات الاستفادة</h2>
+                <p className="text-muted">اتبع هذه الخطوات السريعة للوصول للخدمة بالطريقة الصحيحة.</p>
                 <ul className="service-list">
                   <li>
                     <FontAwesomeIcon icon="search" className="text-primary" />
-                    <span className="ms-2">
-                      <Translate contentKey="citizenPortal.steps.find" />
-                    </span>
+                    <span className="ms-2">استعرض الخدمة ومتطلباتها.</span>
                   </li>
                   <li>
                     <FontAwesomeIcon icon="save" className="text-primary" />
-                    <span className="ms-2">
-                      <Translate contentKey="citizenPortal.steps.prepare" />
-                    </span>
+                    <span className="ms-2">حضّر المستندات والنماذج.</span>
                   </li>
                   <li>
                     <FontAwesomeIcon icon="road" className="text-primary" />
-                    <span className="ms-2">
-                      <Translate contentKey="citizenPortal.steps.submit" />
-                    </span>
+                    <span className="ms-2">قدّم الطلب للجهة المختصة.</span>
                   </li>
                 </ul>
                 {service.isElectronic && (
                   <Alert color="success" className="mt-3 mb-0">
-                    <Translate contentKey="citizenPortal.steps.electronic" />
+                    هذه الخدمة متاحة إلكترونياً ويمكن إنجازها بالكامل دون زيارة.
                   </Alert>
                 )}
               </div>
 
               <div className="service-detail-card">
-                <h2 className="h5 mb-2">
-                  <Translate contentKey="citizenPortal.sections.templates" />
-                </h2>
+                <h2 className="h5 mb-2">النماذج والملفات</h2>
                 {templates.length === 0 ? (
-                  <p className="text-muted mb-0">
-                    <Translate contentKey="citizenPortal.templates.none" />
-                  </p>
+                  <p className="text-muted mb-0">لا توجد نماذج مرفوعة لهذه الخدمة حتى الآن.</p>
                 ) : (
                   <ul className="service-list">
                     {templates.map(template => (
@@ -225,9 +174,7 @@ const CitizenServiceDetails = () => {
                               download={template.name}
                             >
                               <FontAwesomeIcon icon="download" />
-                              <span className="ms-1">
-                                <Translate contentKey="citizenPortal.templates.download" />
-                              </span>
+                              <span className="ms-1">تحميل</span>
                             </Button>
                           )}
                         </div>

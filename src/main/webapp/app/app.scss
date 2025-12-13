@@ -1,3 +1,4 @@
+@import url('https://fonts.cdnfonts.com/css/qumra');
 // Override Bootstrap variables
 @import 'bootstrap-variables';
 // Import Bootstrap source files from node_modules
@@ -11,12 +12,17 @@
   --color-text: #0f2b24;
 }
 
+html {
+  direction: rtl;
+}
+
 body {
   background:
     radial-gradient(circle at 10% 20%, rgba(66, 129, 119, 0.08), transparent 35%),
     radial-gradient(circle at 90% 10%, rgba(0, 38, 35, 0.08), transparent 30%), var(--color-cream);
   color: var(--color-text);
   margin: 0;
+  font-family: 'Qumra', 'Cairo', 'Noto Naskh Arabic', 'Tahoma', sans-serif;
   direction: rtl;
   text-align: right;
 }

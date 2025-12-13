@@ -9,7 +9,7 @@ import org.mapstruct.*;
 /**
  * Mapper for the entity {@link CitizenService} and its DTO {@link CitizenServiceDTO}.
  */
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = { ServiceCategoryMapper.class, RequiredDocumentMapper.class, ServiceFormTemplateMapper.class })
 public interface CitizenServiceMapper extends EntityMapper<CitizenServiceDTO, CitizenService> {
     @Mapping(target = "category", source = "category", qualifiedByName = "serviceCategoryId")
     CitizenServiceDTO toDto(CitizenService s);

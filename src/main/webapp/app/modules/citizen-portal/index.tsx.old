@@ -1,0 +1,17 @@
+import React from 'react';
+import { Route } from 'react-router-dom';
+
+import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
+
+import CitizenLanding from './citizen-landing';
+import CitizenServicePublicDetail from './citizen-service-detail';
+
+const CitizenPortalRoutes = () => (
+  <ErrorBoundaryRoutes>
+    <Route index element={<CitizenLanding />} />
+    <Route path="services/:id" element={<CitizenServicePublicDetail />} />
+  </ErrorBoundaryRoutes>
+);
+
+export default CitizenPortalRoutes;
+export { CitizenLanding };

@@ -23,8 +23,10 @@ public class ServiceFormTemplateDTO implements Serializable {
     private String description;
 
     @Lob
+    @NotNull
     private byte[] file;
 
+    @NotNull
     private String fileContentType;
 
     @NotNull

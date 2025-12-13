@@ -23,6 +23,13 @@ export const Home = () => {
         <p className="lead">
           <Translate contentKey="home.subtitle" />
         </p>
+        <div className="home-brand">
+          <img src="assets/images/logo.ai.svg" alt="شعار بوابة درعا" />
+          <div>
+            <p className="mb-1 fw-bold">بوابة خدمات محافظة درعا</p>
+            <small className="text-light">خط قمرة، تصميم عربي كامل، وهوية موحدة بكل الصفحات</small>
+          </div>
+        </div>
         <div className="home-actions">
           <Link to="/citizen" className="btn btn-primary btn-lg">
             <FontAwesomeIcon icon="search" />

@@ -15,7 +15,13 @@ export const locales = Object.keys(languages).sort();
 export const isRTL = (lang: string): boolean => languages[lang] && languages[lang].rtl;
 
 export const setTextDirection = (lang: string) => {
-  document.querySelector('html').setAttribute('dir', isRTL(lang) ? 'rtl' : 'ltr');
+  const direction = isRTL(lang) ? 'rtl' : 'ltr';
+  const html = document.querySelector('html');
+  html?.setAttribute('dir', direction);
+  html?.setAttribute('lang', lang);
+  if (document.body) {
+    document.body.setAttribute('dir', direction);
+  }
 };
 
 export const registerLocale = store => {

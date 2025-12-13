@@ -28,6 +28,15 @@ export default tseslint.config(
     },
   },
   {
+    files: ['assets/js/**/*.{js,cjs,mjs}'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        MockApi: 'readonly',
+      },
+    },
+  },
+  {
     files: ['**/*.{js,cjs,mjs}'],
     rules: {
       'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],

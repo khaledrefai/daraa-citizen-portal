@@ -73,12 +73,12 @@ public class CitizenService implements Serializable {
     @Column(name = "active", nullable = false)
     private Boolean active;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "service")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "service", cascade = CascadeType.ALL, orphanRemoval = true)
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "service" }, allowSetters = true)
     private Set<RequiredDocument> requiredDocuments = new HashSet<>();
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "service")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "service", cascade = CascadeType.ALL, orphanRemoval = true)
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     @JsonIgnoreProperties(value = { "service" }, allowSetters = true)
     private Set<ServiceFormTemplate> formTemplates = new HashSet<>();

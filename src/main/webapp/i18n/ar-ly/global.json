@@ -1,38 +1,38 @@
 {
   "global": {
-    "title": "بوابة خدمات المواطنين",
-    "browsehappy": "أنت تستخدم متصفح <strong>قديم</strong> . من فضلك <a href=\"http://browsehappy.com/?locale=en\">قم بتحديث متصفحك</a> لتحسين تجربتك.",
+    "title": "بوابة خدمات محافظة درعا",
+    "browsehappy": "متصفحك قديم. يرجى <strong>تحديثه</strong> لتحصل على أفضل تجربة <a href=\"http://browsehappy.com/?locale=en\">تحديث المتصفح</a>.",
     "menu": {
       "home": "الصفحة الرئيسية",
-      "citizenPortal": "دليل المواطنين",
+      "citizenPortal": "بوابة المواطن",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "الكيانات",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
-        "directorate": "المديرية",
-        "serviceCategory": "تصنيف الخدمة",
-        "citizenService": "خدمة المواطنين",
+        "directorate": "الجهات",
+        "serviceCategory": "فئات الخدمات",
+        "citizenService": "خدمات المواطن",
         "requiredDocument": "المستندات المطلوبة",
-        "serviceFormTemplate": "نموذج الخدمة"
+        "serviceFormTemplate": "نماذج الخدمة"
       },
       "account": {
         "main": "الحساب",
         "settings": "الإعدادات",
-        "password": "كلمه السر",
-        "sessions": "جلسات",
+        "password": "كلمة المرور",
+        "sessions": "الجلسات",
         "login": "تسجيل الدخول",
         "logout": "تسجيل الخروج",
-        "register": "التسجيل"
+        "register": "تسجيل"
       },
       "admin": {
-        "main": "الادارة",
-        "userManagement": "إدارة المستخدم",
-        "tracker": "تعقب المستخدمين",
-        "metrics": "مقاييس",
+        "main": "الإدارة",
+        "userManagement": "إدارة المستخدمين",
+        "tracker": "تتبع الجلسات",
+        "metrics": "المؤشرات",
         "health": "الصحة",
         "configuration": "الإعدادات",
         "logs": "السجلات",
-        "apidocs": "API",
+        "apidocs": "واجهة البرمجة",
         "database": "قاعدة البيانات",
         "jhipster-needle-menu-add-admin-element": "JHipster will add additional menu entries here (do not translate!)"
       },
@@ -40,66 +40,66 @@
     },
     "form": {
       "username.label": "اسم المستخدم",
-      "username.placeholder": "إسم المستخدم الخاص بك",
+      "username.placeholder": "اسم المستخدم الخاص بك",
       "currentpassword.label": "كلمة المرور الحالية",
-      "currentpassword.placeholder": "أدخل كلمة المرور الحالية",
-      "newpassword.label": "كلمة السر الجديدة",
-      "newpassword.placeholder": "كلمة السر الجديدة",
-      "confirmpassword.label": "تأكيد كلمة السر الجديدة",
-      "confirmpassword.placeholder": "تأكيد كلمة السر الجديدة",
+      "currentpassword.placeholder": "كلمة المرور الحالية",
+      "newpassword.label": "كلمة مرور جديدة",
+      "newpassword.placeholder": "كلمة المرور الجديدة",
+      "confirmpassword.label": "تأكيد كلمة المرور",
+      "confirmpassword.placeholder": "تأكيد كلمة المرور",
       "email.label": "البريد الإلكتروني",
-      "email.placeholder": "بريدك الالكتروني"
+      "email.placeholder": "بريدك الإلكتروني"
     },
     "messages": {
       "info": {
         "authenticated": {
-          "prefix": "إذا اردت أن ",
-          "link": "تسجل دخولك",
-          "suffix": ", يمكنك تجربة الحسابات التجريبية:<br/>- المدير (login=\"admin\" و كلمة المرور=\"admin\") <br/>- المستخدم (login=\"user\" و كلمة المرور=\"user\")."
+          "prefix": "أنت مسجل كـ ",
+          "link": "تغيير الحساب",
+          "suffix": ", يمكن استعمال الحسابات الافتراضية:<br/>- المسؤول (login=\"admin\" و كلمة المرور=\"admin\") <br/>- المستخدم (login=\"user\" و كلمة المرور=\"user\")."
         },
         "register": {
-          "noaccount": "لا تملك حسابا حتى الآن؟",
-          "link": "تسجيل حساب جديد"
+          "noaccount": "لا تملك حساباً؟",
+          "link": "أنشئ حساباً جديداً"
         }
       },
       "error": {
-        "dontmatch": "كلمة السر وتأكيدها لا تتطابق!"
+        "dontmatch": "كلمتا المرور غير متطابقتين!"
       },
       "validate": {
         "newpassword": {
-          "required": "كلمة المرور الخاصة بك مطلوبة.",
-          "minlength": "كلمة السر لا يمكن أن تكون اقل 4 احرف.",
-          "maxlength": "كلمة السر لا يمكن أن تكون اكثر من 50 حرفا.",
+          "required": "كلمة المرور مطلوبة.",
+          "minlength": "كلمة المرور يجب أن تكون على الأقل 4 أحرف.",
+          "maxlength": "كلمة المرور يجب ألا تتجاوز 50 حرفاً.",
           "strength": "قوة كلمة المرور:"
         },
         "confirmpassword": {
-          "required": "تأكيد كلمة المرور الخاصة بك مطلوب.",
-          "minlength": "تأكيد كلمة السر لا يمكن أن يكون اقل 4 احرف.",
-          "maxlength": "تأكيد كلمة السر لا يمكن أن يكون اكثر من 50 حرفا."
+          "required": "تأكيد كلمة المرور مطلوب.",
+          "minlength": "تأكيد كلمة المرور يجب أن يكون 4 أحرف على الأقل.",
+          "maxlength": "تأكيد كلمة المرور يجب ألا يتجاوز 50 حرفاً."
         },
         "email": {
-          "required": "البريد الإلكتروني الخاصة بك مطلوب.",
-          "invalid": "بريدك الالكتروني خاطئ.",
-          "minlength": "البريد اﻹلكتروني لا يمكن أن يكون اقل 4 احرف.",
-          "maxlength": "البريد اﻹلكتروني لا يمكن أن يكون اكثر من 50 حرفا."
+          "required": "البريد الإلكتروني مطلوب.",
+          "invalid": "البريد الإلكتروني غير صحيح.",
+          "minlength": "البريد الإلكتروني يجب ألا يقل عن 4 أحرف.",
+          "maxlength": "البريد الإلكتروني يجب ألا يزيد عن 50 حرفاً."
         }
       }
     },
     "field": {
-      "id": "ID"
+      "id": "المعرف"
     },
     "ribbon": {
       "dev": "تطوير"
     },
-    "item-count": "يعرض {{first}} - {{second}} من {{total}} البيانات.",
+    "item-count": "إظهار {{first}} - {{second}} من {{total}} عناصر.",
     "footer": "© محافظة درعا - جميع الحقوق محفوظة"
   },
   "entity": {
     "action": {
-      "addblob": "اضف ملف",
-      "addimage": "اضف صورة",
+      "addblob": "إضافة ملف",
+      "addimage": "إضافة صورة",
       "back": "رجوع",
-      "cancel": "الغاء",
+      "cancel": "إلغاء",
       "delete": "حذف",
       "edit": "تعديل",
       "open": "فتح",
@@ -108,45 +108,45 @@
       "show": "عرض {{otherEntity}}"
     },
     "detail": {
-      "field": "حقل",
-      "value": "قيمة"
+      "field": "الحقل",
+      "value": "القيمة"
     },
     "delete": {
-      "title": "تأكيد عملية الحذف"
+      "title": "تأكيد حذف العنصر"
     },
     "validation": {
       "required": "هذا الحقل مطلوب.",
-      "minlength": "هذا الحقل مطلوب أن يكون على الأقل {{ min }} احرف.",
-      "maxlength": "هذا الحقل لا يمكن أن يكون أطول من {{ max }} احرف.",
-      "min": "هذا الحقل ينبغي أن يكون اقل من {{ min }}.",
-      "max": "هذا الحقل لا يمكن أن يكون أكثر من {{ max }}.",
-      "minbytes": "هذا الحقل ينبغي أن يكون اقل من {{ min }} بايت.",
-      "maxbytes": "هذا الحقل لا يمكن أن يكون أكثر من {{ max }} بايت.",
-      "pattern": "هذا الحقل يجب أن يتبع نمط {{ pattern }}.",
-      "number": "هذا الحقل يجب أن يكون رقم.",
-      "datetimelocal": "هذا الحقل يجب أن يكون تاريخ ووقت."
+      "minlength": "يجب ألا يقل هذا الحقل عن {{ min }} أحرف.",
+      "maxlength": "يجب ألا يزيد هذا الحقل عن {{ max }} أحرف.",
+      "min": "يجب ألا تقل القيمة عن {{ min }}.",
+      "max": "يجب ألا تزيد القيمة عن {{ max }}.",
+      "minbytes": "يجب ألا يقل هذا الحقل عن {{ min }} بايت.",
+      "maxbytes": "يجب ألا يزيد هذا الحقل عن {{ max }} بايت.",
+      "pattern": "القيمة لا تتطابق مع النمط {{ pattern }}.",
+      "number": "يجب أن تكون القيمة رقماً.",
+      "datetimelocal": "يجب أن تكون القيمة تاريخاً ووقتاً صحيحين."
     },
     "filters": {
-      "set": "تم تطبيق المرشحات التالية",
-      "clear": "إزالة المرشح",
-      "clearAll": "إزالة كل المرشحات"
+      "set": "تطبيق الفلاتر المحددة",
+      "clear": "مسح الفلاتر",
+      "clearAll": "مسح كل الفلاتر"
     }
   },
   "error": {
     "internalServerError": "حدث خطأ في الخادم",
-    "server.not.reachable": "الخادم لا يمكن الوصول إليه",
-    "url.not.found": "غير موجود",
-    "NotNull": "الحقل {{ fieldName }} لا يمكن ان يكون فارغ",
-    "Size": "الحقل {{ fieldName }} لا يلبي متطلبات الحد الأدنى / الحد الأقصى!",
-    "userexists": "اسم الدخول سبق استخدامه!",
-    "emailexists": "البريد الالكتروني قيد الاستخدام بالفعل!",
-    "idexists": "{{ entityName }} جديد لا يمكن أن يكون له معرف بالفعل",
-    "idnull": "معرّف غير صالح",
-    "idinvalid": "معرّف غير صحيح",
-    "idnotfound": "لا يمكن العثور على المعرّف",
+    "server.not.reachable": "الخادم غير متاح",
+    "url.not.found": "الرابط غير موجود",
+    "NotNull": "حقل {{ fieldName }} لا يمكن أن يكون فارغاً",
+    "Size": "حقل {{ fieldName }} لا يفي بالقيود على الحجم!",
+    "userexists": "اسم المستخدم مسجل مسبقاً!",
+    "emailexists": "البريد الإلكتروني مسجل مسبقاً!",
+    "idexists": "{{ entityName }} لديه معرف بالفعل",
+    "idnull": "المعرف لا يمكن أن يكون فارغاً",
+    "idinvalid": "معرف غير صالح",
+    "idnotfound": "لم يتم العثور على {{ entityName }}",
     "file": {
       "could.not.extract": "تعذر استخراج الملف",
-      "not.image": "يجب أن يكون الملف صورة ولكن النوع هو \"{{ fileType }}\""
+      "not.image": "هذا الملف ليس صورة من نوع \"{{ fileType }}\""
     }
   },
   "footer": "© محافظة درعا - جميع الحقوق محفوظة"
