@@ -25,9 +25,16 @@ public class CitizenServiceService {
 
     private final CitizenServiceMapper citizenServiceMapper;
 
-    public CitizenServiceService(CitizenServiceRepository citizenServiceRepository, CitizenServiceMapper citizenServiceMapper) {
+    private final AiAssistantService aiAssistantService;
+
+    public CitizenServiceService(
+        CitizenServiceRepository citizenServiceRepository,
+        CitizenServiceMapper citizenServiceMapper,
+        AiAssistantService aiAssistantService
+    ) {
         this.citizenServiceRepository = citizenServiceRepository;
         this.citizenServiceMapper = citizenServiceMapper;
+        this.aiAssistantService = aiAssistantService;
     }
 
     /**
@@ -40,7 +47,9 @@ public class CitizenServiceService {
         LOG.debug("Request to save CitizenService : {}", citizenServiceDTO);
         CitizenService citizenService = citizenServiceMapper.toEntity(citizenServiceDTO);
         citizenService = citizenServiceRepository.save(citizenService);
-        return citizenServiceMapper.toDto(citizenService);
+        CitizenServiceDTO result = citizenServiceMapper.toDto(citizenService);
+        aiAssistantService.indexCitizenService(result);
+        return result;
     }
 
     /**
@@ -53,7 +62,9 @@ public class CitizenServiceService {
         LOG.debug("Request to update CitizenService : {}", citizenServiceDTO);
         CitizenService citizenService = citizenServiceMapper.toEntity(citizenServiceDTO);
         citizenService = citizenServiceRepository.save(citizenService);
-        return citizenServiceMapper.toDto(citizenService);
+        CitizenServiceDTO result = citizenServiceMapper.toDto(citizenService);
+        aiAssistantService.indexCitizenService(result);
+        return result;
     }
 
     /**
@@ -73,7 +84,11 @@ public class CitizenServiceService {
                 return existingCitizenService;
             })
             .map(citizenServiceRepository::save)
-            .map(citizenServiceMapper::toDto);
+            .map(citizenServiceMapper::toDto)
+            .map(result -> {
+                aiAssistantService.indexCitizenService(result);
+                return result;
+            });
     }
 
     /**
@@ -108,5 +123,6 @@ public class CitizenServiceService {
     public void delete(Long id) {
         LOG.debug("Request to delete CitizenService : {}", id);
         citizenServiceRepository.deleteById(id);
+        aiAssistantService.deleteCitizenServiceVector(id);
     }
 }
