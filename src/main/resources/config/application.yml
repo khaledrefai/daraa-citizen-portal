@@ -198,6 +198,23 @@ jhipster:
   #   exposed-headers: "Authorization,Link,X-Total-Count,X-${jhipster.clientApp.name}-alert,X-${jhipster.clientApp.name}-error,X-${jhipster.clientApp.name}-params"
   #   allow-credentials: true
   #   max-age: 1800
+
+ai:
+  assistant:
+    enabled: true
+    open-ai:
+      api-key: ${OPENAI_API_KEY:}
+      base-url: ${OPENAI_BASE_URL:https://api.openai.com/v1}
+      chat-model: ${OPENAI_CHAT_MODEL:gpt-4o-mini}
+      embeddings-model: ${OPENAI_EMBEDDINGS_MODEL:text-embedding-3-small}
+      temperature: ${OPENAI_CHAT_TEMPERATURE:0.2}
+    qdrant:
+      url: ${QDRANT_URL:http://localhost:6333}
+      api-key: ${QDRANT_API_KEY:}
+      collection: ${QDRANT_COLLECTION:daraa}
+      batch-size: ${QDRANT_BATCH_SIZE:32}
+      search-limit: ${QDRANT_SEARCH_LIMIT:12}
+      vector-size: ${QDRANT_VECTOR_SIZE:1536}
   mail:
     from: citizenServices@localhost
   api-docs:

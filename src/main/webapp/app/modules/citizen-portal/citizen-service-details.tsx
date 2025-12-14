@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ICitizenService } from 'app/shared/model/citizen-service.model';
 import { IRequiredDocument } from 'app/shared/model/required-document.model';
 import { IServiceFormTemplate } from 'app/shared/model/service-form-template.model';
+import CitizenAssistant from './citizen-assistant';
 
 const CitizenServiceDetails = () => {
   const { id } = useParams();
@@ -187,6 +188,7 @@ const CitizenServiceDetails = () => {
           </Row>
         </>
       )}
+      <CitizenAssistant />
     </div>
   );
 };
