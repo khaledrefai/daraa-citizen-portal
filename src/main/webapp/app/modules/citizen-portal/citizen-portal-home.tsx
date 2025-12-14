@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { ICitizenService } from 'app/shared/model/citizen-service.model';
 import { IServiceCategory } from 'app/shared/model/service-category.model';
 import { IDirectorate } from 'app/shared/model/directorate.model';
+import CitizenAssistant from './citizen-assistant';
 
 const durationLabels: Record<string, string> = {
   MINUTE: 'دقيقة',
@@ -297,6 +298,7 @@ const CitizenPortalHome = () => {
           )}
         </section>
       </div>
+      <CitizenAssistant />
     </div>
   );
 };
