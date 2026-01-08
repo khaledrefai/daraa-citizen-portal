@@ -93,9 +93,6 @@ const CitizenServiceDetails = () => {
                 <p className="text-muted mb-3">{service.description}</p>
 
                 <div className="d-flex flex-wrap gap-2 mb-2">
-                  <Badge color="light" className="text-primary">
-                    رمز الخدمة: {service.code}
-                  </Badge>
                   {renderDuration() && (
                     <Badge color="info">
                       <FontAwesomeIcon icon="clock" />

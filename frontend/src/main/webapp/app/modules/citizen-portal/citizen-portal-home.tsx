@@ -85,7 +85,7 @@ const CitizenPortalHome = () => {
       .filter(service =>
         !term
           ? true
-          : [service.name, service.description, service.category?.name, service.category?.directorate?.name, service.code].some(value =>
+          : [service.name, service.description, service.category?.name, service.category?.directorate?.name].some(value =>
               value?.toLowerCase().includes(term),
             ),
       );
@@ -123,7 +123,6 @@ const CitizenPortalHome = () => {
   const renderServiceCard = (service: ICitizenService) => (
     <article key={service.id} className="service-card-v2">
       <div className="card-header">
-        <span className="service-code">{service.code}</span>
         <div className="service-tags">
           {service.isElectronic && (
             <span className="tag tag-electronic">

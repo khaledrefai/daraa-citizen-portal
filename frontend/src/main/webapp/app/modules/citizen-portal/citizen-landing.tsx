@@ -78,7 +78,6 @@ const CitizenLanding = () => {
           const term = search.toLowerCase();
           return (
             service.name?.toLowerCase().includes(term) ||
-            service.code?.toLowerCase().includes(term) ||
             service.description?.toLowerCase().includes(term) ||
             service.category?.name?.toLowerCase().includes(term) ||
             service.category?.directorate?.name?.toLowerCase().includes(term)
@@ -197,7 +196,6 @@ const CitizenLanding = () => {
             <div className="service-grid">
               {filteredServices.map(service => (
                 <div key={service.id} className="service-card">
-                  <p className="service-code">رمز الخدمة: {service.code}</p>
                   <h3>{service.name}</h3>
                   <p className="service-description">{service.description}</p>
 
