@@ -204,6 +204,7 @@ ai:
   assistant:
     enabled: true
     open-ai:
+    
       base-url: ${OPENAI_BASE_URL:https://api.openai.com/v1}
       chat-model: ${OPENAI_CHAT_MODEL:gpt-4o-mini}
       embeddings-model: ${OPENAI_EMBEDDINGS_MODEL:text-embedding-3-small}
