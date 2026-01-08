@@ -96,7 +96,7 @@ jhipster:
       enabled: false
       host: localhost
       port: 5000
-      ring-b  `uffer-size: 512
+      ring-buffer-size: 512
 ai:
   assistant:
     # Override the default localhost Qdrant endpoint for dev to point to the remote instance

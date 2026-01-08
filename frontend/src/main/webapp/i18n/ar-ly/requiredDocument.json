@@ -1,0 +1,28 @@
+{
+  "citizenServicesApp": {
+    "requiredDocument": {
+      "home": {
+        "title": "المستندات المطلوبة",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء مستند مطلوب جديد",
+        "createOrEditLabel": "إنشاء أو تعديل المستند المطلوب",
+        "notFound": "لم يتم العثور على المستندات المطلوبة"
+      },
+      "created": "تم إنشاء مستند مطلوب جديد بالمعرف {{ param }}",
+      "updated": "تم تحديث المستند المطلوب بالمعرف {{ param }}",
+      "deleted": "تم حذف المستند المطلوب بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف المستند المطلوب {{ id }}؟"
+      },
+      "detail": {
+        "title": "المستند المطلوب"
+      },
+      "id": "المعرف",
+      "name": "الاسم",
+      "description": "الوصف",
+      "mandatory": "إلزامي",
+      "orderIndex": "رقم الترتيب",
+      "service": "الخدمة"
+    }
+  }
+}

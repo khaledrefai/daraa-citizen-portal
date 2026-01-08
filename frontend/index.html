@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>منصة خدمة المواطن - محافظة درعا</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <img src="assets/images/logo.ai.svg" alt="شعار محافظة درعا" class="brand__logo" />
+        <div class="brand__text">
+          <p class="brand__subtitle">الجمهورية العربية السورية</p>
+          <h1 class="brand__title">منصة خدمة المواطن</h1>
+          <span class="brand__gov">محافظة درعا</span>
+        </div>
+      </div>
+      <nav class="main-nav">
+        <a href="#servicesSection" class="nav-link">الخدمات</a>
+        <a href="#citizenServicesSection" class="nav-link">خدماتي</a>
+        <a href="#footer" class="nav-link">تواصل معنا</a>
+      </nav>
+      <div class="user-actions">
+        <button class="btn btn-outline" id="loginTrigger">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          تسجيل الدخول
+        </button>
+        <button class="btn btn-primary" id="registerTrigger">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          إنشاء حساب
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero__background">
+          <div class="hero__pattern"></div>
+          <div class="hero__gradient"></div>
+        </div>
+        <div class="hero__content">
+          <div class="hero__badge">
+            <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span>منصة حكومية رسمية</span>
+          </div>
+          <h2>خدمات رقمية موثوقة<br/><span class="text-highlight">لمواطني محافظة درعا</span></h2>
+          <p>
+            منصة "خدمة المواطن" بوابتك الذكية للحصول على الخدمات الإدارية والقنصلية، 
+            متابعة الشكاوى والطلبات، ودفع المخالفات بكل سهولة وأمان.
+          </p>
+          <div class="hero__cta">
+            <button class="btn btn-primary btn-lg" id="exploreServices">
+              <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+              استعراض الخدمات
+            </button>
+            <button class="btn btn-glass" id="contactSupport">
+              <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M20 15.5c-1.25 0-2.45-.2-3.57-.57a1.02 1.02 0 0 0-1.02.24l-2.2 2.2a15.074 15.074 0 0 1-6.59-6.59l2.2-2.21a.96.96 0 0 0 .25-1A11.36 11.36 0 0 1 8.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-1-1z"/></svg>
+              تواصل معنا
+            </button>
+          </div>
+        </div>
+        <div class="hero__stats" id="heroStats"></div>
+      </section>
+
+      <section class="services" id="servicesSection">
+        <div class="section-header">
+          <div class="section-title">
+            <span class="section-icon">
+              <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12 2l-5.5 9h11L12 2zm0 3.84L13.93 9h-3.87L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5zM3 21.5h8v-8H3v8zm2-6h4v4H5v-4z"/></svg>
+            </span>
+            <div>
+              <h3>الخدمات الإلكترونية</h3>
+              <p class="section-subtitle">اختر التصنيف المناسب لاستعراض الخدمات المتاحة</p>
+            </div>
+          </div>
+          
+          <div class="filter-container" id="filterContainer">
+            <button class="filter-toggle" id="filterToggle">
+              <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/></svg>
+              <span id="activeFilterLabel">جميع التصنيفات</span>
+              <svg class="chevron" viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
+            </button>
+            <div class="filter-dropdown" id="filterDropdown">
+              <div class="filter-dropdown__header">
+                <span>اختر التصنيف</span>
+                <button class="filter-close" id="filterClose">
+                  <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </button>
+              </div>
+              <div class="filter-options" id="categoryFilters"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="active-filters" id="activeFilters">
+          <div class="filter-chips" id="filterChips"></div>
+        </div>
+
+        <div class="services__layout">
+          <div class="services__list" id="servicesList"></div>
+          <aside class="service-details" id="serviceDetails">
+            <div class="empty-state">
+              <div class="empty-state__icon">
+                <svg viewBox="0 0 24 24" width="64" height="64"><path fill="currentColor" opacity="0.3" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+              </div>
+              <h4>اختر خدمة للاطلاع على تفاصيلها</h4>
+              <p>اضغط على أي خدمة من القائمة لاستعراض الوصف، مسار العمل، وقنوات التواصل.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="citizen-services" id="citizenServicesSection">
+        <div class="section-header section-header--center">
+          <div class="section-title section-title--center">
+            <span class="section-icon section-icon--accent">
+              <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+            </span>
+            <div>
+              <h3>خدمات المواطن</h3>
+              <p class="section-subtitle">قدّم طلباتك وتابع معاملاتك إلكترونياً</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cards-grid">
+          <article class="citizen-card" data-target="complaints">
+            <div class="citizen-card__icon">
+              <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg>
+            </div>
+            <div class="citizen-card__content">
+              <h4>خدمة الشكاوى</h4>
+              <p>قدّم شكوى جديدة وتابع حالتها خطوة بخطوة حتى المعالجة النهائية من قبل الجهات المختصة.</p>
+              <ul class="citizen-card__features">
+                <li>
+                  <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  تتبع مباشر للحالة
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  إشعارات فورية
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  رد خلال 48 ساعة
+                </li>
+              </ul>
+            </div>
+            <button class="citizen-card__btn">
+              <span>بدء الاستخدام</span>
+              <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </button>
+          </article>
+
+          <article class="citizen-card" data-target="requests">
+            <div class="citizen-card__icon citizen-card__icon--blue">
+              <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+            </div>
+            <div class="citizen-card__content">
+              <h4>خدمة الطلبات</h4>
+              <p>أرسل طلباً للدوائر والمؤسسات الحكومية، وتابع مراحله حتى الإنجاز الكامل.</p>
+              <ul class="citizen-card__features">
+                <li>
+                  <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  أكثر من 50 جهة حكومية
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  إرفاق المستندات
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  رقم متابعة فوري
+                </li>
+              </ul>
+            </div>
+            <button class="citizen-card__btn">
+              <span>بدء الاستخدام</span>
+              <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </button>
+          </article>
+
+          <article class="citizen-card" data-target="suggestions">
+            <div class="citizen-card__icon citizen-card__icon--amber">
+              <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+            </div>
+            <div class="citizen-card__content">
+              <h4>خدمة الاقتراحات</h4>
+              <p>شارك أفكارك ومقترحاتك لتحسين الخدمات الحكومية، ودع صوتك يصل لصنّاع القرار.</p>
+              <ul class="citizen-card__features">
+                <li>
+                  <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  مراجعة من المختصين
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  تقييم وتصويت
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  متابعة التنفيذ
+                </li>
+              </ul>
+            </div>
+            <button class="citizen-card__btn">
+              <span>إرسال اقتراح</span>
+              <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </button>
+          </article>
+
+          <article class="citizen-card" data-target="violations">
+            <div class="citizen-card__icon citizen-card__icon--red">
+              <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M11 15h2v2h-2v-2zm0-8h2v6h-2V7zm.99-5C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg>
+            </div>
+            <div class="citizen-card__content">
+              <h4>المخالفات والذمم</h4>
+              <p>استعرض المخالفات المسجلة بحقك وقم بسدادها إلكترونياً بشكل آمن.</p>
+              <ul class="citizen-card__features">
+                <li>
+                  <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  دفع إلكتروني آمن
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  إيصالات فورية
+                </li>
+                <li>
+                  <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  سجل المدفوعات
+                </li>
+              </ul>
+            </div>
+            <button class="citizen-card__btn">
+              <span>عرض المخالفات</span>
+              <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </button>
+          </article>
+        </div>
+
+        <div class="citizen-panels">
+          <section class="panel" id="complaintsPanel"></section>
+          <section class="panel" id="requestsPanel"></section>
+          <section class="panel" id="suggestionsPanel"></section>
+          <section class="panel" id="violationsPanel"></section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="footer">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <img src="assets/images/logo.ai.svg" alt="شعار محافظة درعا" class="footer__logo" />
+          <div>
+            <h5>منصة خدمة المواطن</h5>
+            <p>محافظة درعا - مديرية التحول الرقمي</p>
+          </div>
+        </div>
+        <div class="footer__social">
+          <a href="#" class="social-link" aria-label="فيسبوك">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="تيليجرام">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="واتساب">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23-1.48 0-2.93-.39-4.19-1.15l-.3-.17-3.12.82.83-3.04-.2-.31a8.188 8.188 0 0 1-1.26-4.38c.01-4.54 3.7-8.24 8.25-8.25zm-3.11 4.84c-.15 0-.39.06-.6.29-.2.23-.77.75-.77 1.83s.79 2.13.9 2.28c.11.14 1.54 2.36 3.74 3.31.52.23.93.36 1.25.47.53.17 1.01.14 1.39.09.42-.06 1.3-.53 1.49-1.04.18-.51.18-.95.13-1.04-.06-.09-.2-.14-.43-.25-.22-.11-1.3-.64-1.5-.72-.21-.07-.36-.11-.51.11-.15.22-.58.72-.71.86-.13.15-.26.17-.48.06-.22-.11-.93-.34-1.76-1.09-.65-.58-1.09-1.3-1.22-1.52-.13-.22-.01-.34.1-.45.1-.1.22-.26.33-.4.11-.14.14-.23.22-.39.07-.15.03-.28-.02-.4-.05-.11-.51-1.21-.7-1.66-.18-.43-.37-.37-.51-.38-.13 0-.28-.01-.43-.01z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__content">
+        <div class="footer__column">
+          <h5>تواصل معنا</h5>
+          <ul>
+            <li>
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              015-123456
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              citizen@daraa.gov.sy
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+              مبنى محافظة درعا - دوار المحافظة
+            </li>
+          </ul>
+        </div>
+        <div class="footer__column">
+          <h5>أوقات العمل</h5>
+          <ul>
+            <li>
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              الأحد - الخميس: 8:00 ص - 3:00 م
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              خدمة الطوارئ: 24/7
+            </li>
+          </ul>
+        </div>
+        <div class="footer__column">
+          <h5>روابط سريعة</h5>
+          <ul>
+            <li><a href="#servicesSection">الخدمات الإلكترونية</a></li>
+            <li><a href="#complaintsPanel">الشكاوى والمقترحات</a></li>
+            <li><a href="#requestsPanel">متابعة الطلبات</a></li>
+            <li><a href="#">سياسة الخصوصية</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2024 محافظة درعا - مديرية التحول الرقمي. جميع الحقوق محفوظة.</p>
+      </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal" aria-hidden="true">
+      <div class="modal__overlay" data-close></div>
+      <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+        <button class="modal__close" data-close aria-label="إغلاق">
+          <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+        <div class="modal__header">
+          <div class="modal__icon">
+            <svg viewBox="0 0 24 24" width="40" height="40"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+          </div>
+          <h4 id="authTitle">حساب المواطن</h4>
+          <p id="authSubtitle">سجّل الدخول للوصول لكافة الخدمات</p>
+        </div>
+        <div class="modal__tabs">
+          <button class="modal__tab active" data-tab="login">تسجيل الدخول</button>
+          <button class="modal__tab" data-tab="register">إنشاء حساب</button>
+        </div>
+        <div class="modal__body">
+          <form id="loginForm" class="modal__form" data-tab-content="login">
+            <label>
+              <span>رقم الهاتف</span>
+              <div class="input-group">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                <input type="tel" name="phone" required placeholder="09xxxxxxxx" autocomplete="username" />
+              </div>
+            </label>
+            <label>
+              <span>كلمة المرور</span>
+              <div class="input-group">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                <input type="password" name="password" required autocomplete="current-password" placeholder="أدخل كلمة المرور" />
+              </div>
+            </label>
+            <button type="submit" class="btn btn-primary w-100">دخول</button>
+          </form>
+
+          <form id="registerForm" class="modal__form hidden" data-tab-content="register">
+            <label>
+              <span>الاسم الثلاثي</span>
+              <div class="input-group">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                <input type="text" name="fullName" required placeholder="أدخل اسمك الثلاثي" />
+              </div>
+            </label>
+            <label>
+              <span>الرقم الوطني</span>
+              <div class="input-group">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zM4 6h16v2H4V6zm0 12v-6h16v6H4z"/></svg>
+                <input type="text" name="nationalId" required maxlength="11" placeholder="الرقم الوطني (11 رقم)" />
+              </div>
+            </label>
+            <label>
+              <span>رقم الهاتف</span>
+              <div class="input-group">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                <input type="tel" name="phone" required placeholder="09xxxxxxxx" />
+              </div>
+            </label>
+            <label>
+              <span>كلمة المرور</span>
+              <div class="input-group">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                <input type="password" name="password" required placeholder="أدخل كلمة المرور" />
+              </div>
+            </label>
+            <button type="submit" class="btn btn-primary w-100">تسجيل</button>
+          </form>
+
+          <form id="otpForm" class="modal__form hidden" data-tab-content="otp">
+            <p class="otp__hint"></p>
+            <label>
+              <span>كلمة المرور لمرة واحدة</span>
+              <div class="input-group">
+                <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 17a2 2 0 0 0 2-2 2 2 0 0 0-2-2 2 2 0 0 0-2 2 2 2 0 0 0 2 2m6-9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a5 5 0 0 1 5-5 5 5 0 0 1 5 5v2h1m-6-5a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3z"/></svg>
+                <input type="text" name="otp" required inputmode="numeric" maxlength="6" placeholder="أدخل الرمز المكون من 6 أرقام" />
+              </div>
+            </label>
+            <button type="submit" class="btn btn-primary w-100">تفعيل الحساب</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      <svg class="toast__icon" viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+      <span class="toast__message"></span>
+    </div>
+
+    <!-- Chatbot حوراني -->
+    <div class="chatbot" id="chatbot">
+      <button class="chatbot__trigger" id="chatbotTrigger" aria-label="فتح المحادثة مع حوراني">
+        <div class="chatbot__trigger-icon">
+          <svg viewBox="0 0 24 24" width="28" height="28"><path fill="currentColor" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/></svg>
+        </div>
+        <span class="chatbot__trigger-text">حوراني</span>
+        <span class="chatbot__trigger-pulse"></span>
+      </button>
+
+      <div class="chatbot__window" id="chatbotWindow" aria-hidden="true">
+        <div class="chatbot__header">
+          <div class="chatbot__avatar">
+            <svg viewBox="0 0 24 24" width="32" height="32"><path fill="currentColor" d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5z"/></svg>
+          </div>
+          <div class="chatbot__info">
+            <h5>حوراني</h5>
+            <span class="chatbot__status">
+              <span class="chatbot__status-dot"></span>
+              مساعدك الذكي
+            </span>
+          </div>
+          <button class="chatbot__close" id="chatbotClose" aria-label="إغلاق المحادثة">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+          </button>
+        </div>
+
+        <div class="chatbot__messages" id="chatbotMessages">
+          <div class="chatbot__message chatbot__message--bot">
+            <div class="chatbot__message-avatar">
+              <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5z"/></svg>
+            </div>
+            <div class="chatbot__message-content">
+              <p>مرحباً بك! أنا <strong>حوراني</strong>، مساعدك الذكي في منصة خدمة المواطن. كيف يمكنني مساعدتك اليوم؟</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="chatbot__suggestions" id="chatbotSuggestions">
+          <button class="chatbot__suggestion" data-query="كيف أقدم شكوى؟">كيف أقدم شكوى؟</button>
+          <button class="chatbot__suggestion" data-query="ما هي الخدمات المتاحة؟">الخدمات المتاحة</button>
+          <button class="chatbot__suggestion" data-query="كيف أتابع طلبي؟">متابعة طلب</button>
+          <button class="chatbot__suggestion" data-query="أوقات العمل">أوقات العمل</button>
+        </div>
+
+        <form class="chatbot__input" id="chatbotForm">
+          <input type="text" name="message" placeholder="اكتب رسالتك هنا..." autocomplete="off" />
+          <button type="submit" aria-label="إرسال">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script src="assets/js/mockApi.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

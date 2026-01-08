@@ -1,0 +1,36 @@
+{
+  "citizenServicesApp": {
+    "citizenService": {
+      "home": {
+        "title": "خدمات المواطنين",
+        "refreshListLabel": "تحديث القائمة",
+        "createLabel": "إنشاء خدمة مواطن جديدة",
+        "createOrEditLabel": "إنشاء أو تعديل خدمة المواطن",
+        "notFound": "لم يتم العثور على خدمات المواطنين"
+      },
+      "created": "تم إنشاء خدمة مواطن جديدة بالمعرف {{ param }}",
+      "updated": "تم تحديث خدمة المواطن بالمعرف {{ param }}",
+      "deleted": "تم حذف خدمة المواطن بالمعرف {{ param }}",
+      "delete": {
+        "question": "هل أنت متأكد أنك تريد حذف خدمة المواطن {{ id }}؟"
+      },
+      "detail": {
+        "title": "خدمة المواطن"
+      },
+      "id": "المعرف",
+      "name": "الاسم",
+      "description": "الوصف",
+      "estimatedDuration": "المدة المقدرة",
+      "estimatedDurationUnit": "وحدة المدة المقدرة",
+      "requiresPhysicalPresence": "يتطلب حضور شخصي",
+      "isElectronic": "إلكترونية",
+      "hasSmartCard": "لديها بطاقة ذكية",
+      "feesDescription": "وصف الرسوم",
+      "serviceLink": "رابط الخدمة الإلكترونية",
+      "active": "نشط",
+      "requiredDocuments": "المستندات المطلوبة",
+      "formTemplates": "قوالب النماذج",
+      "category": "الفئة"
+    }
+  }
+}
