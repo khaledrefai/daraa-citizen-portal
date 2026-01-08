@@ -204,7 +204,7 @@ ai:
   assistant:
     enabled: true
     open-ai:
-      api-key: ${OPENAI_API_KEY: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}
+      api-key: ${OPENAI_API_KEY:}
       base-url: ${OPENAI_BASE_URL:https://api.openai.com/v1}
       chat-model: ${OPENAI_CHAT_MODEL:gpt-4o-mini}
       embeddings-model: ${OPENAI_EMBEDDINGS_MODEL:text-embedding-3-small}
