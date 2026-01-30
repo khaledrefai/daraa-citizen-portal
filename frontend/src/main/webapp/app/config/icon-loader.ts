@@ -17,6 +17,9 @@ import {
   faHome,
   faList,
   faLock,
+  faLocationDot,
+  faPhone,
+  faEnvelope,
   faPaperPlane,
   faPencilAlt,
   faPlus,
@@ -41,6 +44,8 @@ import {
   faWrench,
 } from '@fortawesome/free-solid-svg-icons';
 
+import { faFacebookF, faInstagram } from '@fortawesome/free-brands-svg-icons';
+
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 export const loadIcons = () => {
@@ -63,6 +68,9 @@ export const loadIcons = () => {
     faHome,
     faList,
     faLock,
+    faLocationDot,
+    faPhone,
+    faEnvelope,
     faPaperPlane,
     faPencilAlt,
     faPlus,
@@ -85,5 +93,7 @@ export const loadIcons = () => {
     faUsers,
     faUsersCog,
     faWrench,
+    faFacebookF,
+    faInstagram,
   );
 };

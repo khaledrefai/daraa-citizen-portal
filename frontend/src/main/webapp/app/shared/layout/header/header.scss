@@ -1,167 +1,104 @@
-$header-bg-start: #002623;
-$header-bg-mid: #054239;
-$header-bg-end: #428177;
-$header-color: #e9f3f0;
-$header-color-secondary: rgba(233, 243, 240, 0.8);
-$header-color-hover: lighten($header-color, 4%);
+/* 1. المتغيرات والأساسيات */
+$bg-solid: #002623;
+$bg-gradient: linear-gradient(115deg, #002623 0%, #054239 55%, #428177 100%);
+$text-light: #e9f3f0;
 
-/* ==========================================================================
-Development Ribbon
-========================================================================== */
-.ribbon {
-  background-color: rgba(66, 129, 119, 0.65);
-  left: -3.5em;
-  -moz-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  overflow: hidden;
-  position: absolute;
-  top: 40px;
-  white-space: nowrap;
-  width: 15em;
-  z-index: 99999;
-  pointer-events: none;
-  opacity: 0.85;
-  a {
-    color: #fff;
-    display: block;
-    font-weight: 600;
-    margin: 1px 0;
-    padding: 10px 50px;
-    text-align: center;
-    text-decoration: none;
-    text-shadow: 0 0 5px #002623;
-    pointer-events: none;
-  }
-}
-
-/* ==========================================================================
-Navbar styles
-========================================================================== */
 .jh-navbar {
-  background: linear-gradient(115deg, $header-bg-start 0%, $header-bg-mid 55%, $header-bg-end 100%);
-  padding: 0.35em 1.25em;
-  box-shadow: 0 0.75rem 1.25rem rgba(0, 0, 0, 0.18);
-  border-bottom: 2px solid rgba(233, 243, 240, 0.15);
-  direction: rtl;
+  background: $bg-gradient !important;
+  direction: rtl !important;
+  min-height: 80px;
+  z-index: 1100 !important;
+  padding: 0.5rem 1rem !important;
 
-  .profile-image {
-    margin: -10px 0;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    border: 2px solid rgba(233, 243, 240, 0.45);
+  .container-fluid {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
   }
 
-  .dropdown-item {
-    text-align: right;
+  .navbar-brand {
+    order: 1 !important;
+    margin: 0 !important;
   }
 
-  .dropdown-item.active,
-  .dropdown-item.active:focus,
-  .dropdown-item.active:hover {
-    background-color: rgba(66, 129, 119, 0.2);
-  }
-
-  .dropdown-toggle::after {
-    margin-inline-start: 0.25em;
-  }
-
-  ul.navbar-nav {
-    padding: 0.5em;
-    gap: 1rem;
-    .nav-item {
-      margin-inline-start: 1rem;
+  /* زر القائمة (Hamburger) */
+  .navbar-toggler {
+    order: 2 !important;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    // يظهر فقط في الشاشات أقل من 992px
+    @media (min-width: 992px) {
+      display: none !important;
     }
   }
 
-  a.nav-link {
-    font-weight: 700;
-    color: $header-color;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
+  /* 2. تنسيق القائمة للشاشات الكبيرة (Desktop) */
+  @media (min-width: 992px) {
+    .navbar-collapse {
+      display: flex !important; // إعادتها للظهور في الشاشات الكبيرة
+      flex-basis: auto;
+      order: 3;
+      justify-content: flex-end;
 
-    > span {
-      margin-inline-start: 4px;
-      color: $header-color;
-    }
+      .custom-nav {
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 1.5rem;
 
-    &:hover {
-      color: $header-color-hover;
-      > span {
-        color: $header-color-hover;
+        .nav-link {
+          color: rgba(233, 243, 240, 0.9) !important;
+          font-weight: 700;
+          white-space: nowrap;
+          &:hover { color: #fff !important; }
+        }
       }
     }
   }
 
-  .jh-navbar-toggler {
-    color: $header-color;
-    font-size: 1.5em;
-    padding: 10px;
-    &:hover {
-      color: $header-color-hover;
+  /* 3. تنسيق القائمة لشاشات التابلت (768px) والموبايل */
+  @media (max-width: 991.98px) {
+    .navbar-collapse {
+      /* تحويلها لطبقة منبثقة صلبة لمنع الشفافية */
+      position: absolute !important;
+      top: 100%;
+      right: 0;
+      left: 0;
+      width: 100%;
+      background: $bg-solid !important;
+      padding: 1.5rem !important;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+      z-index: 1000;
+
+      // إخفاء القائمة إذا لم تكن مفتوحة (Toggle)
+      &:not(.show) {
+        display: none !important;
+      }
+
+      .custom-nav {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 1rem !important;
+
+        .nav-item {
+          width: 100%;
+          border-bottom: 1px solid rgba(255,255,255,0.05);
+          padding-bottom: 0.5rem;
+        }
+      }
     }
   }
 }
 
-.navbar-brand {
-  overflow: hidden;
-}
-
-.jh-navbar .navbar-nav .nav-link {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.navbar-version {
-  font-size: 0.75em;
-  color: $header-color-secondary;
-  padding-inline-start: 10px;
-}
-
+/* 4. تنسيق الشعار واستجابته */
 .brand-logo {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.65rem;
+  gap: 0.75rem;
+  .brand-icon img { height: 50px; }
+  .brand-text { display: flex; flex-direction: column; text-align: right; }
 
-  &:hover {
-    text-decoration: none;
+  @media (max-width: 991px) {
+    .brand-icon img { height: 40px; }
+    .brand-title { font-size: 1.1rem; }
+    .brand-subtitle { display: none; }
   }
-
-  .brand-icon {
-    height: 42px;
-    width: auto;
-    display: inline-block;
-    padding: 4px;
-    border-radius: 0.65rem;
-    background-color: rgba(233, 243, 240, 0.12);
-    border: 1px solid rgba(233, 243, 240, 0.15);
-
-    img {
-      width: 48px;
-      height: auto;
-    }
-  }
-}
-
-.brand-title {
-  font-size: 1.35rem;
-  color: $header-color;
-  font-weight: 800;
-  letter-spacing: 0.5px;
-  &:hover {
-    color: $header-color-hover;
-    text-decoration: none;
-  }
-}
-
-.loading-bar {
-  height: 3px;
-  background-color: #428177;
-  position: absolute;
-  top: 0;
-  z-index: 1031;
 }

@@ -1,48 +1,103 @@
-.footer {
-  background: linear-gradient(90deg, rgba(0, 38, 35, 0.9) 0%, rgba(5, 66, 57, 0.9) 60%, rgba(66, 129, 119, 0.9) 100%);
-  color: #e9f3f0;
-  text-align: right;
-  padding: 1.25rem 0;
-  margin-top: 1.5rem;
-  border-top: 2px solid rgba(233, 243, 240, 0.15);
-  box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.1);
+$footer-bg-start: #002623;
+$footer-bg-end: #054239;
+$accent-gold: #ffc107; // لون مقارب للـ amber-300
 
-  p {
-    margin: 0;
+.footer-main {
+  background: linear-gradient(to bottom, $footer-bg-start, $footer-bg-end) !important;
+  color: #fff;
+  direction: rtl;
+  margin-top: auto;
+
+  .footer-content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap; // يسمح بنزول العناصر في الشاشات الصغيرة
+
+    .footer-section {
+      flex: 1;
+      min-width: 250px; // يضمن ألا تضيق الأعمدة بشكل مشوه
+    }
+  }
+
+  .footer-title {
+    font-size: 1.1rem;
     font-weight: 700;
-    letter-spacing: 0.5px;
-  }
-
-  .footer-brand {
-    gap: 0.85rem;
-  }
-
-  .footer-logo {
-    width: 54px;
-    height: auto;
-    filter: drop-shadow(0 0.25rem 0.5rem rgba(0, 0, 0, 0.2));
-    background-color: rgba(233, 243, 240, 0.12);
-    border-radius: 0.85rem;
-    padding: 0.35rem;
-    border: 1px solid rgba(233, 243, 240, 0.2);
+    margin-bottom: 1.25rem;
+    color: #fff;
   }
 
   .footer-subtitle {
-    font-weight: 500;
-    color: rgba(233, 243, 240, 0.85);
+    color: $accent-gold;
+    font-weight: 600;
   }
 
-  .footer-copy {
-    color: rgba(233, 243, 240, 0.9);
-    font-weight: 700;
-  }
+  /* تنسيق أيقونات التواصل */
+  .social-icons-list {
+    display: flex;
+    gap: 0.75rem;
 
-  @media (max-width: 768px) {
-    text-align: center;
-
-    .footer-brand {
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
       justify-content: center;
-      margin-bottom: 0.75rem;
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: $accent-gold;
+        color: $footer-bg-start;
+        transform: translateY(-3px);
+      }
+
+      .x-text { font-weight: 900; font-size: 0.9rem; }
     }
+  }
+
+  /* تنسيق قائمة المعلومات */
+  .contact-list {
+    list-style: none;
+    padding: 0;
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+      .icon { width: 16px; color: $accent-gold; }
+    }
+  }
+
+  .footer-divider {
+    border-color: rgba(255, 255, 255, 0.1);
+    margin: 2rem 0;
+  }
+
+  .footer-bottom {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    .developer-tag { margin-top: 5px; opacity: 0.8; }
+  }
+}
+
+/* حل مشكلة أجهزة الـ 768px والتابلت */
+@media (max-width: 991px) {
+  .footer-main {
+    .footer-content-wrapper {
+      flex-direction: column; // جعل العناصر فوق بعضها
+      align-items: center;
+      text-align: center;
+      gap: 2.5rem;
+    }
+
+    .social-icons-list { justify-content: center; }
+    .contact-list li { justify-content: center; }
   }
 }

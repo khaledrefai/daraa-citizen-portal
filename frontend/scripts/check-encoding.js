@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 const fs = require('fs');
 const path = require('path');
-
 const ROOT = path.join(__dirname, '..');
 const TARGET_DIR = path.join(ROOT, 'src', 'main', 'webapp', 'app');
 const EXTENSIONS = new Set(['.ts', '.tsx']);

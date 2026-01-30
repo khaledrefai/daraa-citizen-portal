@@ -3,8 +3,8 @@ import './citizen-portal.scss';
 import React, { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { Input, Spinner } from 'reactstrap';
-import { translate } from 'react-jhipster';
+import { Card, CardBody, Input, Spinner } from 'reactstrap';
+import { Translate, translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { ICitizenService } from 'app/shared/model/citizen-service.model';
@@ -226,6 +226,42 @@ const CitizenPortalHome = () => {
           </div>
         </div>
       </nav>
+
+      <section className="citizen-summary">
+        <Card className="shadow-sm">
+          <CardBody>
+            <h2 className="h4 mb-3">
+              <Translate contentKey="home.citizenCard.title" />
+            </h2>
+            <p className="text-muted">
+              <Translate contentKey="home.citizenCard.subtitle" />
+            </p>
+            <ul className="home-list">
+              <li>
+                <FontAwesomeIcon icon="th-list" className="text-primary" />
+                <span className="ms-2">
+                  <Translate contentKey="home.citizenCard.items.catalog" />
+                </span>
+              </li>
+              <li>
+                <FontAwesomeIcon icon="road" className="text-primary" />
+                <span className="ms-2">
+                  <Translate contentKey="home.citizenCard.items.steps" />
+                </span>
+              </li>
+              <li>
+                <FontAwesomeIcon icon="cloud" className="text-primary" />
+                <span className="ms-2">
+                  <Translate contentKey="home.citizenCard.items.downloads" />
+                </span>
+              </li>
+            </ul>
+            <Link to="/citizen" className="btn btn-primary">
+              <Translate contentKey="home.citizenCard.cta" />
+            </Link>
+          </CardBody>
+        </Card>
+      </section>
 
       <div className="search-filter-bar">
         <div className="search-container">

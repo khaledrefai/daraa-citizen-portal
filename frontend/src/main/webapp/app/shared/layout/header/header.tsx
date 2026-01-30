@@ -1,8 +1,7 @@
 import './header.scss';
-
 import React, { useState } from 'react';
-import { Storage, Translate } from 'react-jhipster';
-import { Collapse, Nav, Navbar, NavbarToggler } from 'reactstrap';
+import { Storage } from 'react-jhipster';
+import { Collapse, Nav, Navbar, NavbarToggler, Container } from 'reactstrap';
 import LoadingBar from 'react-redux-loading-bar';
 
 import { useAppDispatch } from 'app/config/store';
@@ -30,36 +29,30 @@ const Header = (props: IHeaderProps) => {
     dispatch(setLocale(langKey));
   };
 
-  const renderDevRibbon = () =>
-    props.isInProduction === false ? (
-      <div className="ribbon dev">
-        <a href="">
-          <Translate contentKey={`global.ribbon.${props.ribbonEnv}`} />
-        </a>
-      </div>
-    ) : null;
-
   const toggleMenu = () => setMenuOpen(!menuOpen);
-
-  /* jhipster-needle-add-element-to-menu - JHipster will add new menu items here */
 
   return (
     <div id="app-header">
-      {renderDevRibbon()}
       <LoadingBar className="loading-bar" />
-      <Navbar data-cy="navbar" dark expand="md" fixed="top" className="jh-navbar">
-        <NavbarToggler aria-label="Menu" onClick={toggleMenu} />
-        <Brand />
-        <Collapse isOpen={menuOpen} navbar>
-          <Nav id="header-tabs" className="ms-auto" navbar>
-            <Home />
-            <CitizenPortalLink />
-            {props.isAuthenticated && <EntitiesMenu />}
-            {props.isAuthenticated && props.isAdmin && <AdminMenu showOpenAPI={props.isOpenAPIEnabled} />}
-            <LocaleMenu currentLocale={props.currentLocale} onClick={handleLocaleChange} />
-            <AccountMenu isAuthenticated={props.isAuthenticated} />
-          </Nav>
-        </Collapse>
+      {/* تم التغيير إلى expand="lg" لضمان ظهور زر القائمة عند 768px */}
+      <Navbar data-cy="navbar" dark expand="lg" fixed="top" className="jh-navbar">
+        <Container fluid className="d-flex justify-content-between align-items-center">
+          <Brand />
+
+          <NavbarToggler aria-label="Menu" onClick={toggleMenu} />
+
+          <Collapse isOpen={menuOpen} navbar id="responsive-navbar-nav">
+            {/* إضافة كلاس custom-nav للتحكم الدقيق في المسافات */}
+            <Nav id="header-tabs" navbar className="ms-auto custom-nav">
+              <Home />
+              <CitizenPortalLink />
+              {props.isAuthenticated && <EntitiesMenu />}
+              {props.isAuthenticated && props.isAdmin && <AdminMenu showOpenAPI={props.isOpenAPIEnabled} />}
+              <AccountMenu isAuthenticated={props.isAuthenticated} />
+              <LocaleMenu currentLocale={props.currentLocale} onClick={handleLocaleChange} />
+            </Nav>
+          </Collapse>
+        </Container>
       </Navbar>
     </div>
   );

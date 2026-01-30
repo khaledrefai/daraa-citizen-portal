@@ -1,6 +1,7 @@
 .home-container {
   padding: 3rem 1rem;
   color: var(--color-text);
+  text-align: center;
 }
 
 .home-hero {
@@ -29,6 +30,11 @@
   font-weight: 800;
   letter-spacing: 0.5px;
   margin-bottom: 1rem;
+  text-align: center;
+}
+
+.home-hero .lead {
+  text-align: center;
 }
 
 .home-eyebrow {
@@ -45,13 +51,18 @@
   flex-wrap: wrap;
   gap: 0.75rem;
   margin: 1.5rem 0;
+  justify-content: center;
 }
 
 .home-brand {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex-direction: row-reverse;
   gap: 0.75rem;
   margin: 1rem 0 1.5rem;
+  text-align: center;
+  width: auto;
 
   img {
     width: 72px;
@@ -68,6 +79,10 @@
   }
 }
 
+.home-brand > div {
+  text-align: center;
+}
+
 .home-actions .btn-lg {
   border-radius: 999px;
   padding-inline: 1.4rem;
@@ -78,6 +93,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  justify-content: center;
 }
 
 .home-badges .badge {
@@ -93,6 +109,8 @@
   list-style: none;
   padding: 0;
   margin: 1rem 0 1.5rem;
+  display: inline-block;
+  text-align: start;
 }
 
 .home-list li {
@@ -107,6 +125,7 @@
 .home-list .text-primary {
   color: var(--color-secondary) !important;
 }
+/*
 
 .card .btn-primary {
   background-color: var(--color-primary);
@@ -127,7 +146,7 @@
 .alert-success {
   border-radius: 0.75rem;
   border: 1px solid rgba(0, 38, 35, 0.08);
-}
+}*/
 
 @media (max-width: 768px) {
   .home-hero {

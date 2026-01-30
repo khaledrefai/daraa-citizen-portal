@@ -10,6 +10,7 @@ const utils = require('./utils.js');
 const commonConfig = require('./webpack.common.js');
 
 const ENV = 'development';
+const DEV_SERVER_PORT = Number.parseInt(process.env.DEV_SERVER_PORT, 10) || 9063;
 
 module.exports = async options =>
   webpackMerge(await commonConfig({ env: ENV }), {
@@ -56,15 +57,15 @@ module.exports = async options =>
       static: {
         directory: './target/classes/static/',
       },
-      port: 9060,
-      proxy: [
-        {
-          context: ['/api', '/services', '/management', '/v3/api-docs', '/h2-console'],
-          target: `http${options.tls ? 's' : ''}://173.212.199.139:8084`,
-          secure: false,
-          changeOrigin: options.tls,
-        },
-      ],
+      port: DEV_SERVER_PORT,
+      // proxy: [
+      //   {
+      //     context: ['/api', '/services', '/management', '/v3/api-docs', '/h2-console'],
+      //     target: `http${options.tls ? 's' : ''}://173.212.199.139:8084`,
+      //     secure: false,
+      //     changeOrigin: options.tls,
+      //   },
+      // ],
       historyApiFallback: true,
     },
     stats: process.env.JHI_DISABLE_WEBPACK_LOGS ? 'none' : options.stats,
@@ -78,9 +79,9 @@ module.exports = async options =>
         {
           https: options.tls,
           host: '0.0.0.0',
-          port: 9000,
+          port: 9002,
           proxy: {
-            target: `http${options.tls ? 's' : ''}://173.212.199.139:${options.watch ? '8084' : '9060'}`,
+            target: `http${options.tls ? 's' : ''}://localhost:${options.watch ? '8084' : DEV_SERVER_PORT}`,
             ws: true,
             proxyOptions: {
               changeOrigin: false, //pass the Host header to the backend unchanged https://github.com/Browsersync/browser-sync/issues/430

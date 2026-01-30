@@ -219,9 +219,6 @@ const CitizenServicePublicDetail = () => {
               <div className="side-help">
                 <p className="eyebrow">تحتاج مساعدة؟</p>
                 <p className="text-muted">يمكنك زيارة الجهة المعنية أو التواصل مع فريق البوابة للحصول على إرشادات أكثر.</p>
-                <Button tag={Link} to="/login" color="secondary" outline size="sm">
-                  دخول المسؤول
-                </Button>
               </div>
             </CardBody>
           </Card>
