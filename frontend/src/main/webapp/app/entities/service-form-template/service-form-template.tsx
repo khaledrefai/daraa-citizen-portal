@@ -92,8 +92,8 @@ export const ServiceFormTemplate = () => {
     <div>
       <h2 id="service-form-template-heading" data-cy="ServiceFormTemplateHeading">
         <Translate contentKey="citizenServicesApp.serviceFormTemplate.home.title">Service Form Templates</Translate>
-        <div className="d-flex justify-content-end">
-          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
+        <div className="d-flex justify-content-end gap-3">
+          <Button className="me-2 refresh-btn" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
             <Translate contentKey="citizenServicesApp.serviceFormTemplate.home.refreshListLabel">Refresh List</Translate>
           </Button>
@@ -147,14 +147,16 @@ export const ServiceFormTemplate = () => {
             <tbody>
               {serviceFormTemplateList.map((serviceFormTemplate, i) => (
                 <tr key={`entity-${i}`} data-cy="entityTable">
-                  <td>
+                  <td data-label="المعرف">
                     <Button tag={Link} to={`/service-form-template/${serviceFormTemplate.id}`} color="link" size="sm">
                       {serviceFormTemplate.id}
                     </Button>
                   </td>
-                  <td>{serviceFormTemplate.name}</td>
-                  <td>{serviceFormTemplate.description}</td>
-                  <td>
+                  <td data-label="الاسم">{serviceFormTemplate.name}</td>
+                  <td data-label="الوصف" className="description-cell">
+                    {serviceFormTemplate.description}
+                  </td>
+                  <td data-label="الملف">
                     {serviceFormTemplate.file ? (
                       <div>
                         {serviceFormTemplate.fileContentType ? (
@@ -169,16 +171,16 @@ export const ServiceFormTemplate = () => {
                       </div>
                     ) : null}
                   </td>
-                  <td>{serviceFormTemplate.active ? 'true' : 'false'}</td>
-                  <td>{serviceFormTemplate.orderIndex}</td>
-                  <td>
+                  <td data-label="نشط">{serviceFormTemplate.active ? 'true' : 'false'}</td>
+                  <td data-label="الترتيب">{serviceFormTemplate.orderIndex}</td>
+                  <td data-label="الخدمة">
                     {serviceFormTemplate.service ? (
                       <Link to={`/citizen-service/${serviceFormTemplate.service.id}`}>{serviceFormTemplate.service.id}</Link>
                     ) : (
                       ''
                     )}
                   </td>
-                  <td className="text-end">
+                  <td className="text-end actions-cell">
                     <div className="btn-group flex-btn-group-container">
                       <Button
                         tag={Link}

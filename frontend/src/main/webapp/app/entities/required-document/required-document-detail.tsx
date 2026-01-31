@@ -19,8 +19,8 @@ export const RequiredDocumentDetail = () => {
 
   const requiredDocumentEntity = useAppSelector(state => state.requiredDocument.entity);
   return (
-    <Row>
-      <Col md="8">
+    <Row className="justify-content-center">
+      <Col md="10" lg="8" className="entity-detail-card">
         <h2 data-cy="requiredDocumentDetailsHeading">
           <Translate contentKey="citizenServicesApp.requiredDocument.detail.title">RequiredDocument</Translate>
         </h2>
@@ -60,19 +60,21 @@ export const RequiredDocumentDetail = () => {
           </dt>
           <dd>{requiredDocumentEntity.service ? requiredDocumentEntity.service.id : ''}</dd>
         </dl>
-        <Button tag={Link} to="/required-document" replace color="info" data-cy="entityDetailsBackButton">
-          <FontAwesomeIcon icon="arrow-left" />{' '}
-          <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.back">Back</Translate>
-          </span>
-        </Button>
-        &nbsp;
-        <Button tag={Link} to={`/required-document/${requiredDocumentEntity.id}/edit`} replace color="primary">
-          <FontAwesomeIcon icon="pencil-alt" />{' '}
-          <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.edit">Edit</Translate>
-          </span>
-        </Button>
+
+        <div className="btn-group flex-btn-group-container">
+          <Button tag={Link} to="/required-document" replace color="info" data-cy="entityDetailsBackButton">
+            <FontAwesomeIcon icon="arrow-left" />{' '}
+            <span className="d-none d-md-inline">
+              <Translate contentKey="entity.action.back">Back</Translate>
+            </span>
+          </Button>
+          <Button tag={Link} to={`/required-document/${requiredDocumentEntity.id}/edit`} replace color="primary">
+            <FontAwesomeIcon icon="pencil-alt" />{' '}
+            <span className="d-none d-md-inline">
+              <Translate contentKey="entity.action.edit">Edit</Translate>
+            </span>
+          </Button>
+        </div>
       </Col>
     </Row>
   );

@@ -134,7 +134,7 @@ Navbar styles
   .brand-icon {
     height: 42px;
     width: auto;
-    display: inline-block;
+    display: flex;
     padding: 4px;
     border-radius: 0.65rem;
     background-color: rgba(233, 243, 240, 0.12);

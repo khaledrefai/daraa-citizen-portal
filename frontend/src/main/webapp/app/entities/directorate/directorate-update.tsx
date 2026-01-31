@@ -66,7 +66,7 @@ export const DirectorateUpdate = () => {
   return (
     <div>
       <Row className="justify-content-center">
-        <Col md="8">
+        <Col md="10" lg="8" className="entity-detail-card">
           <h2 id="citizenServicesApp.directorate.home.createOrEditLabel" data-cy="DirectorateCreateUpdateHeading">
             <Translate contentKey="citizenServicesApp.directorate.home.createOrEditLabel">Create or edit a Directorate</Translate>
           </h2>
@@ -128,19 +128,21 @@ export const DirectorateUpdate = () => {
                 check
                 type="checkbox"
               />
-              <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/directorate" replace color="info">
-                <FontAwesomeIcon icon="arrow-left" />
+              <div className="btn-group flex-btn-group-container">
+                <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/directorate" replace color="info">
+                  <FontAwesomeIcon icon="arrow-left" />
+                  &nbsp;
+                  <span className="d-none d-md-inline">
+                    <Translate contentKey="entity.action.back">Back</Translate>
+                  </span>
+                </Button>
                 &nbsp;
-                <span className="d-none d-md-inline">
-                  <Translate contentKey="entity.action.back">Back</Translate>
-                </span>
-              </Button>
-              &nbsp;
-              <Button color="primary" id="save-entity" data-cy="entityCreateSaveButton" type="submit" disabled={updating}>
-                <FontAwesomeIcon icon="save" />
-                &nbsp;
-                <Translate contentKey="entity.action.save">Save</Translate>
-              </Button>
+                <Button color="primary" id="save-entity" data-cy="entityCreateSaveButton" type="submit" disabled={updating}>
+                  <FontAwesomeIcon icon="save" />
+                  &nbsp;
+                  <Translate contentKey="entity.action.save">Save</Translate>
+                </Button>
+              </div>
             </ValidatedForm>
           )}
         </Col>

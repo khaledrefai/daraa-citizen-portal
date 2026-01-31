@@ -19,8 +19,8 @@ export const DirectorateDetail = () => {
 
   const directorateEntity = useAppSelector(state => state.directorate.entity);
   return (
-    <Row>
-      <Col md="8">
+    <Row className="justify-content-center">
+      <Col md="10" lg="8" className="entity-detail-card">
         <h2 data-cy="directorateDetailsHeading">
           <Translate contentKey="citizenServicesApp.directorate.detail.title">Directorate</Translate>
         </h2>
@@ -56,19 +56,21 @@ export const DirectorateDetail = () => {
           </dt>
           <dd>{directorateEntity.active ? 'true' : 'false'}</dd>
         </dl>
-        <Button tag={Link} to="/directorate" replace color="info" data-cy="entityDetailsBackButton">
-          <FontAwesomeIcon icon="arrow-left" />{' '}
-          <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.back">Back</Translate>
-          </span>
-        </Button>
-        &nbsp;
-        <Button tag={Link} to={`/directorate/${directorateEntity.id}/edit`} replace color="primary">
-          <FontAwesomeIcon icon="pencil-alt" />{' '}
-          <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.edit">Edit</Translate>
-          </span>
-        </Button>
+
+        <div className="btn-group flex-btn-group-container">
+          <Button tag={Link} to="/directorate" replace color="info" data-cy="entityDetailsBackButton">
+            <FontAwesomeIcon icon="arrow-left" />{' '}
+            <span className="d-none d-md-inline">
+              <Translate contentKey="entity.action.back">Back</Translate>
+            </span>
+          </Button>
+          <Button tag={Link} to={`/directorate/${directorateEntity.id}/edit`} replace color="primary">
+            <FontAwesomeIcon icon="pencil-alt" />{' '}
+            <span className="d-none d-md-inline">
+              <Translate contentKey="entity.action.edit">Edit</Translate>
+            </span>
+          </Button>
+        </div>
       </Col>
     </Row>
   );

@@ -92,8 +92,8 @@ export const RequiredDocument = () => {
     <div>
       <h2 id="required-document-heading" data-cy="RequiredDocumentHeading">
         <Translate contentKey="citizenServicesApp.requiredDocument.home.title">Required Documents</Translate>
-        <div className="d-flex justify-content-end">
-          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
+        <div className="d-flex justify-content-end gap-3">
+          <Button className="me-2 refresh-btn" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
             <Translate contentKey="citizenServicesApp.requiredDocument.home.refreshListLabel">Refresh List</Translate>
           </Button>
@@ -138,23 +138,25 @@ export const RequiredDocument = () => {
             <tbody>
               {requiredDocumentList.map((requiredDocument, i) => (
                 <tr key={`entity-${i}`} data-cy="entityTable">
-                  <td>
+                  <td data-label="المعرف">
                     <Button tag={Link} to={`/required-document/${requiredDocument.id}`} color="link" size="sm">
                       {requiredDocument.id}
                     </Button>
                   </td>
-                  <td>{requiredDocument.name}</td>
-                  <td>{requiredDocument.description}</td>
-                  <td>{requiredDocument.mandatory ? 'true' : 'false'}</td>
-                  <td>{requiredDocument.orderIndex}</td>
-                  <td>
+                  <td data-label="الاسم">{requiredDocument.name}</td>
+                  <td data-label="الوصف" className="description-cell">
+                    {requiredDocument.description}
+                  </td>
+                  <td data-label="إلزامي">{requiredDocument.mandatory ? 'true' : 'false'}</td>
+                  <td data-label="الترتيب">{requiredDocument.orderIndex}</td>
+                  <td data-label="الخدمة">
                     {requiredDocument.service ? (
                       <Link to={`/citizen-service/${requiredDocument.service.id}`}>{requiredDocument.service.id}</Link>
                     ) : (
                       ''
                     )}
                   </td>
-                  <td className="text-end">
+                  <td className="text-end actions-cell">
                     <div className="btn-group flex-btn-group-container">
                       <Button
                         tag={Link}

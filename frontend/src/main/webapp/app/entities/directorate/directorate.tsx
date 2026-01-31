@@ -92,8 +92,8 @@ export const Directorate = () => {
     <div>
       <h2 id="directorate-heading" data-cy="DirectorateHeading">
         <Translate contentKey="citizenServicesApp.directorate.home.title">Directorates</Translate>
-        <div className="d-flex justify-content-end">
-          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
+        <div className="d-flex justify-content-end gap-3">
+          <Button className="me-2 refresh-btn" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
             <Translate contentKey="citizenServicesApp.directorate.home.refreshListLabel">Refresh List</Translate>
           </Button>
@@ -135,16 +135,18 @@ export const Directorate = () => {
             <tbody>
               {directorateList.map((directorate, i) => (
                 <tr key={`entity-${i}`} data-cy="entityTable">
-                  <td>
+                  <td data-label="المعرف">
                     <Button tag={Link} to={`/directorate/${directorate.id}`} color="link" size="sm">
                       {directorate.id}
                     </Button>
                   </td>
-                  <td>{directorate.code}</td>
-                  <td>{directorate.name}</td>
-                  <td>{directorate.description}</td>
-                  <td>{directorate.active ? 'true' : 'false'}</td>
-                  <td className="text-end">
+                  <td data-label="الرمز">{directorate.code}</td>
+                  <td data-label="الاسم">{directorate.name}</td>
+                  <td data-label="الوصف" className="description-cell">
+                    {directorate.description}
+                  </td>
+                  <td data-label="نشط">{directorate.active ? 'true' : 'false'}</td>
+                  <td className="text-end actions-cell">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/directorate/${directorate.id}`} color="info" size="sm" data-cy="entityDetailsButton">
                         <FontAwesomeIcon icon="eye" />{' '}
