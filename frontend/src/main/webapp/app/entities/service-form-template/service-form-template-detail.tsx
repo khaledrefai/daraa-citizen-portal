@@ -19,8 +19,8 @@ export const ServiceFormTemplateDetail = () => {
 
   const serviceFormTemplateEntity = useAppSelector(state => state.serviceFormTemplate.entity);
   return (
-    <Row>
-      <Col md="8">
+    <Row className="justify-content-center">
+      <Col md="10" lg="8" className="entity-detail-card">
         <h2 data-cy="serviceFormTemplateDetailsHeading">
           <Translate contentKey="citizenServicesApp.serviceFormTemplate.detail.title">ServiceFormTemplate</Translate>
         </h2>
@@ -50,17 +50,25 @@ export const ServiceFormTemplateDetail = () => {
           </dt>
           <dd>
             {serviceFormTemplateEntity.file ? (
-              <div>
-                {serviceFormTemplateEntity.fileContentType ? (
-                  <a onClick={openFile(serviceFormTemplateEntity.fileContentType, serviceFormTemplateEntity.file)}>
-                    <Translate contentKey="entity.action.open">Open</Translate>&nbsp;
-                  </a>
-                ) : null}
-                <span>
+              <div className="d-flex flex-column">
+                <div>
+                  {serviceFormTemplateEntity.fileContentType ? (
+                    <a
+                      className="text-primary font-weight-bold"
+                      style={{ cursor: 'pointer' }}
+                      onClick={openFile(serviceFormTemplateEntity.fileContentType, serviceFormTemplateEntity.file)}
+                    >
+                      <FontAwesomeIcon icon="eye" /> <Translate contentKey="entity.action.open">Open</Translate>
+                    </a>
+                  ) : null}
+                </div>
+                <small className="text-muted">
                   {serviceFormTemplateEntity.fileContentType}, {byteSize(serviceFormTemplateEntity.file)}
-                </span>
+                </small>
               </div>
-            ) : null}
+            ) : (
+              <span className="text-muted">No file attached</span>
+            )}
           </dd>
           <dt>
             <span id="active">
@@ -79,19 +87,21 @@ export const ServiceFormTemplateDetail = () => {
           </dt>
           <dd>{serviceFormTemplateEntity.service ? serviceFormTemplateEntity.service.id : ''}</dd>
         </dl>
-        <Button tag={Link} to="/service-form-template" replace color="info" data-cy="entityDetailsBackButton">
-          <FontAwesomeIcon icon="arrow-left" />{' '}
-          <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.back">Back</Translate>
-          </span>
-        </Button>
-        &nbsp;
-        <Button tag={Link} to={`/service-form-template/${serviceFormTemplateEntity.id}/edit`} replace color="primary">
-          <FontAwesomeIcon icon="pencil-alt" />{' '}
-          <span className="d-none d-md-inline">
-            <Translate contentKey="entity.action.edit">Edit</Translate>
-          </span>
-        </Button>
+
+        <div className="btn-group flex-btn-group-container">
+          <Button tag={Link} to="/service-form-template" replace color="info" data-cy="entityDetailsBackButton">
+            <FontAwesomeIcon icon="arrow-left" />{' '}
+            <span className="d-none d-md-inline">
+              <Translate contentKey="entity.action.back">Back</Translate>
+            </span>
+          </Button>
+          <Button tag={Link} to={`/service-form-template/${serviceFormTemplateEntity.id}/edit`} replace color="primary">
+            <FontAwesomeIcon icon="pencil-alt" />{' '}
+            <span className="d-none d-md-inline">
+              <Translate contentKey="entity.action.edit">Edit</Translate>
+            </span>
+          </Button>
+        </div>
       </Col>
     </Row>
   );

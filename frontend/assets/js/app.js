@@ -131,23 +131,23 @@ const switchAuthTab = tab => {
 
 const renderHeroStats = services => {
   const stats = [
-    { 
-      label: 'خدمات متاحة إلكترونياً', 
+    {
+      label: 'خدمات متاحة إلكترونياً',
       value: services.filter(s => s.online).length,
-      icon: '<svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>'
+      icon: '<svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>',
     },
-    { 
-      label: 'تصنيفات الخدمات', 
+    {
+      label: 'تصنيفات الخدمات',
       value: new Set(services.map(s => s.category)).size,
-      icon: '<svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2l-5.5 9h11L12 2zm0 3.84L13.93 9h-3.87L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5zM3 21.5h8v-8H3v8zm2-6h4v4H5v-4z"/></svg>'
+      icon: '<svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2l-5.5 9h11L12 2zm0 3.84L13.93 9h-3.87L12 5.84zM17.5 13c-2.49 0-4.5 2.01-4.5 4.5s2.01 4.5 4.5 4.5 4.5-2.01 4.5-4.5-2.01-4.5-4.5-4.5zm0 7a2.5 2.5 0 0 1 0-5 2.5 2.5 0 0 1 0 5zM3 21.5h8v-8H3v8zm2-6h4v4H5v-4z"/></svg>',
     },
-    { 
-      label: 'زمن الاستجابة المتوسط', 
+    {
+      label: 'زمن الاستجابة المتوسط',
       value: '48 ساعة',
-      icon: '<svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>'
+      icon: '<svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>',
     },
   ];
-  
+
   elements.heroStats.innerHTML = stats
     .map(
       stat => `
@@ -166,7 +166,7 @@ const renderHeroStats = services => {
 
 const renderFilters = services => {
   const categories = ['الكل', ...new Set(services.map(service => service.category))];
-  
+
   elements.categoryFilters.innerHTML = categories
     .map(
       category => `
@@ -176,10 +176,10 @@ const renderFilters = services => {
     `,
     )
     .join('');
-    
+
   // Update active filter label
   elements.activeFilterLabel.textContent = state.selectedCategory === 'الكل' ? 'جميع التصنيفات' : state.selectedCategory;
-  
+
   // Render filter chips
   renderFilterChips();
 };
@@ -189,7 +189,7 @@ const renderFilterChips = () => {
     elements.filterChips.innerHTML = '';
     return;
   }
-  
+
   elements.filterChips.innerHTML = `
     <div class="filter-chip">
       <span>${state.selectedCategory}</span>
@@ -213,19 +213,19 @@ const initFilterDropdown = () => {
   elements.filterToggle?.addEventListener('click', () => {
     elements.filterContainer.classList.toggle('open');
   });
-  
+
   // Close button
   elements.filterClose?.addEventListener('click', () => {
     elements.filterContainer.classList.remove('open');
   });
-  
+
   // Close on outside click
-  document.addEventListener('click', (e) => {
+  document.addEventListener('click', e => {
     if (!elements.filterContainer?.contains(e.target)) {
       elements.filterContainer?.classList.remove('open');
     }
   });
-  
+
   // Filter selection
   elements.categoryFilters?.addEventListener('click', event => {
     if (event.target.matches('.filter')) {
@@ -243,9 +243,7 @@ const initFilterDropdown = () => {
 // ====================================
 
 const renderServices = services => {
-  const filtered = state.selectedCategory === 'الكل' 
-    ? services 
-    : services.filter(service => service.category === state.selectedCategory);
+  const filtered = state.selectedCategory === 'الكل' ? services : services.filter(service => service.category === state.selectedCategory);
 
   elements.servicesList.innerHTML = filtered
     .map(
@@ -292,12 +290,16 @@ const renderServiceDetails = async serviceId => {
     const service = await MockApi.getServiceById(serviceId);
     state.selectedService = serviceId;
 
-    const workflowList = service.workflow.map((step, i) => `
+    const workflowList = service.workflow
+      .map(
+        (step, i) => `
       <li>
         <span class="step-number">${i + 1}</span>
         ${step}
       </li>
-    `).join('');
+    `,
+      )
+      .join('');
 
     elements.serviceDetails.innerHTML = `
       <div class="detail-header">
@@ -669,7 +671,7 @@ const chatbotResponses = {
 4. اضغط على "إرسال الشكوى"
 
 ستحصل على رقم متابعة فوري وسيتم الرد خلال 48 ساعة.`,
-  
+
   'ما هي الخدمات المتاحة؟': `تتوفر لدينا عدة تصنيفات من الخدمات:
 • خدمات قنصلية (تصديق الوثائق)
 • خدمات سجل النفوس (البيان العائلي)
@@ -698,14 +700,14 @@ const chatbotResponses = {
 📞 للتواصل: 015-123456
 📧 البريد: citizen@daraa.gov.sy`,
 
-  'default': `شكراً لتواصلك! أنا حوراني، مساعدك الذكي.
+  default: `شكراً لتواصلك! أنا حوراني، مساعدك الذكي.
 
 يمكنني مساعدتك في:
 • الاستفسار عن الخدمات المتاحة
 • شرح كيفية تقديم الشكاوى والطلبات
 • معرفة أوقات العمل وطرق التواصل
 
-للمزيد من المساعدة، تواصل مع الدعم على: 015-123456`
+للمزيد من المساعدة، تواصل مع الدعم على: 015-123456`,
 };
 
 const initChatbot = () => {
@@ -715,25 +717,25 @@ const initChatbot = () => {
     elements.chatbot.classList.toggle('open', state.chatbotOpen);
     elements.chatbotWindow?.setAttribute('aria-hidden', !state.chatbotOpen);
   });
-  
+
   // Close chatbot
   elements.chatbotClose?.addEventListener('click', () => {
     state.chatbotOpen = false;
     elements.chatbot.classList.remove('open');
     elements.chatbotWindow?.setAttribute('aria-hidden', 'true');
   });
-  
+
   // Suggestion buttons
-  elements.chatbotSuggestions?.addEventListener('click', (e) => {
+  elements.chatbotSuggestions?.addEventListener('click', e => {
     const btn = e.target.closest('.chatbot__suggestion');
     if (btn) {
       const query = btn.dataset.query;
       sendChatMessage(query);
     }
   });
-  
+
   // Form submission
-  elements.chatbotForm?.addEventListener('submit', (e) => {
+  elements.chatbotForm?.addEventListener('submit', e => {
     e.preventDefault();
     const input = e.target.querySelector('input[name="message"]');
     const message = input.value.trim();
@@ -744,15 +746,15 @@ const initChatbot = () => {
   });
 };
 
-const sendChatMessage = (message) => {
+const sendChatMessage = message => {
   // Add user message
   addChatMessage(message, 'user');
-  
+
   // Hide suggestions after first message
   if (elements.chatbotSuggestions) {
     elements.chatbotSuggestions.style.display = 'none';
   }
-  
+
   // Simulate typing delay
   setTimeout(() => {
     const response = chatbotResponses[message] || chatbotResponses['default'];
@@ -763,23 +765,24 @@ const sendChatMessage = (message) => {
 const addChatMessage = (text, sender) => {
   const messageDiv = document.createElement('div');
   messageDiv.className = `chatbot__message chatbot__message--${sender}`;
-  
-  const avatarIcon = sender === 'bot' 
-    ? '<svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5z"/></svg>'
-    : '<svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>';
-  
+
+  const avatarIcon =
+    sender === 'bot'
+      ? '<svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2M7.5 13A2.5 2.5 0 0 0 5 15.5 2.5 2.5 0 0 0 7.5 18a2.5 2.5 0 0 0 2.5-2.5A2.5 2.5 0 0 0 7.5 13m9 0a2.5 2.5 0 0 0-2.5 2.5 2.5 2.5 0 0 0 2.5 2.5 2.5 2.5 0 0 0 2.5-2.5 2.5 2.5 0 0 0-2.5-2.5z"/></svg>'
+      : '<svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>';
+
   // Convert newlines to <br> for display
   const formattedText = text.replace(/\n/g, '<br>');
-  
+
   messageDiv.innerHTML = `
     <div class="chatbot__message-avatar">${avatarIcon}</div>
     <div class="chatbot__message-content">
       <p>${formattedText}</p>
     </div>
   `;
-  
+
   elements.chatbotMessages?.appendChild(messageDiv);
-  
+
   // Scroll to bottom
   if (elements.chatbotMessages) {
     elements.chatbotMessages.scrollTop = elements.chatbotMessages.scrollHeight;
@@ -793,7 +796,7 @@ const addChatMessage = (text, sender) => {
 const initAuthTriggers = () => {
   const loginTrigger = document.getElementById('loginTrigger');
   const registerTrigger = document.getElementById('registerTrigger');
-  
+
   loginTrigger?.addEventListener('click', () => {
     switchAuthTab('login');
     toggleModal(true);
@@ -876,10 +879,10 @@ const initNavigationCards = () => {
       const target = card.dataset.target;
       const panel = document.getElementById(`${target}Panel`);
       if (!panel) return;
-      
+
       // Show panel
       panel.classList.add('active');
-      
+
       // Smooth scroll
       setTimeout(() => {
         panel.scrollIntoView({ behavior: 'smooth', block: 'start' });

@@ -97,8 +97,8 @@ export const UserManagement = () => {
     <div>
       <h2 id="user-management-page-heading" data-cy="userManagementPageHeading">
         <Translate contentKey="userManagement.home.title">Users</Translate>
-        <div className="d-flex justify-content-end">
-          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
+        <div className="d-flex justify-content-end gap-3">
+          <Button className="me-2 refresh-btn" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
             <Translate contentKey="userManagement.home.refreshListLabel">Refresh List</Translate>
           </Button>
@@ -168,7 +168,7 @@ export const UserManagement = () => {
                 {user.authorities
                   ? user.authorities.map((authority, j) => (
                       <div key={`user-auth-${i}-${j}`}>
-                        <Badge color="info">{authority}</Badge>
+                        <Badge color="primary">{authority}</Badge>
                       </div>
                     ))
                   : null}

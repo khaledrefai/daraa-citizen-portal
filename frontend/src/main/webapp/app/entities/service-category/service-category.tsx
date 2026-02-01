@@ -92,8 +92,8 @@ export const ServiceCategory = () => {
     <div>
       <h2 id="service-category-heading" data-cy="ServiceCategoryHeading">
         <Translate contentKey="citizenServicesApp.serviceCategory.home.title">Service Categories</Translate>
-        <div className="d-flex justify-content-end">
-          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
+        <div className="d-flex justify-content-end gap-3">
+          <Button className="me-2 refresh-btn" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
             <Translate contentKey="citizenServicesApp.serviceCategory.home.refreshListLabel">Refresh List</Translate>
           </Button>
@@ -139,23 +139,25 @@ export const ServiceCategory = () => {
             <tbody>
               {serviceCategoryList.map((serviceCategory, i) => (
                 <tr key={`entity-${i}`} data-cy="entityTable">
-                  <td>
+                  <td data-label="المعرف">
                     <Button tag={Link} to={`/service-category/${serviceCategory.id}`} color="link" size="sm">
                       {serviceCategory.id}
                     </Button>
                   </td>
-                  <td>{serviceCategory.code}</td>
-                  <td>{serviceCategory.name}</td>
-                  <td>{serviceCategory.description}</td>
-                  <td>{serviceCategory.active ? 'true' : 'false'}</td>
-                  <td>
+                  <td data-label="الرمز">{serviceCategory.code}</td>
+                  <td data-label="الاسم">{serviceCategory.name}</td>
+                  <td data-label="الوصف" className="description-cell">
+                    {serviceCategory.description}
+                  </td>
+                  <td data-label="نشط">{serviceCategory.active ? 'true' : 'false'}</td>
+                  <td data-label="الجهة">
                     {serviceCategory.directorate ? (
                       <Link to={`/directorate/${serviceCategory.directorate.id}`}>{serviceCategory.directorate.id}</Link>
                     ) : (
                       ''
                     )}
                   </td>
-                  <td className="text-end">
+                  <td className="text-end actions-cell">
                     <div className="btn-group flex-btn-group-container">
                       <Button
                         tag={Link}

@@ -92,8 +92,8 @@ export const CitizenService = () => {
     <div>
       <h2 id="citizen-service-heading" data-cy="CitizenServiceHeading">
         <Translate contentKey="citizenServicesApp.citizenService.home.title">Citizen Services</Translate>
-        <div className="d-flex justify-content-end">
-          <Button className="me-2" color="info" onClick={handleSyncList} disabled={loading}>
+        <div className="d-flex justify-content-end gap-3">
+          <Button className="me-2 refresh-btn" onClick={handleSyncList} disabled={loading}>
             <FontAwesomeIcon icon="sync" spin={loading} />{' '}
             <Translate contentKey="citizenServicesApp.citizenService.home.refreshListLabel">Refresh List</Translate>
           </Button>
@@ -109,10 +109,12 @@ export const CitizenService = () => {
           <Table responsive>
             <thead>
               <tr>
+                {/*
                 <th className="hand" onClick={sort('id')}>
                   <Translate contentKey="citizenServicesApp.citizenService.id">ID</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('id')} />
                 </th>
+                */}
                 <th className="hand" onClick={sort('name')}>
                   <Translate contentKey="citizenServicesApp.citizenService.name">Name</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('name')} />
@@ -122,17 +124,14 @@ export const CitizenService = () => {
                   <FontAwesomeIcon icon={getSortIconByFieldName('description')} />
                 </th>
                 <th className="hand" onClick={sort('estimatedDuration')}>
-                  <Translate contentKey="citizenServicesApp.citizenService.estimatedDuration">Estimated Duration</Translate>{' '}
+                  <Translate contentKey="citizenServicesApp.citizenService.estimatedDuration">Duration</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('estimatedDuration')} />
-                </th>
-                <th className="hand" onClick={sort('estimatedDurationUnit')}>
-                  <Translate contentKey="citizenServicesApp.citizenService.estimatedDurationUnit">Estimated Duration Unit</Translate>{' '}
-                  <FontAwesomeIcon icon={getSortIconByFieldName('estimatedDurationUnit')} />
                 </th>
                 <th className="hand" onClick={sort('requiresPhysicalPresence')}>
                   <Translate contentKey="citizenServicesApp.citizenService.requiresPhysicalPresence">Requires Physical Presence</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('requiresPhysicalPresence')} />
                 </th>
+                {/*
                 <th className="hand" onClick={sort('isElectronic')}>
                   <Translate contentKey="citizenServicesApp.citizenService.isElectronic">Is Electronic</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('isElectronic')} />
@@ -141,6 +140,7 @@ export const CitizenService = () => {
                   <Translate contentKey="citizenServicesApp.citizenService.serviceLink">Service Link</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('serviceLink')} />
                 </th>
+                */}
                 <th className="hand" onClick={sort('hasSmartCard')}>
                   <Translate contentKey="citizenServicesApp.citizenService.hasSmartCard">Has Smart Card</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('hasSmartCard')} />
@@ -149,6 +149,7 @@ export const CitizenService = () => {
                   <Translate contentKey="citizenServicesApp.citizenService.feesDescription">Fees Description</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('feesDescription')} />
                 </th>
+                {/*
                 <th className="hand" onClick={sort('active')}>
                   <Translate contentKey="citizenServicesApp.citizenService.active">Active</Translate>{' '}
                   <FontAwesomeIcon icon={getSortIconByFieldName('active')} />
@@ -156,24 +157,35 @@ export const CitizenService = () => {
                 <th>
                   <Translate contentKey="citizenServicesApp.citizenService.category">Category</Translate> <FontAwesomeIcon icon="sort" />
                 </th>
+                */}
                 <th />
               </tr>
             </thead>
             <tbody>
               {citizenServiceList.map((citizenService, i) => (
                 <tr key={`entity-${i}`} data-cy="entityTable">
+                  {/*
                   <td>
                     <Button tag={Link} to={`/citizen-service/${citizenService.id}`} color="link" size="sm">
                       {citizenService.id}
                     </Button>
                   </td>
-                  <td>{citizenService.name}</td>
-                  <td>{citizenService.description}</td>
-                  <td>{citizenService.estimatedDuration}</td>
-                  <td>
-                    <Translate contentKey={`citizenServicesApp.EstimatedTimeUnit.${citizenService.estimatedDurationUnit}`} />
+                  */}
+                  <td data-label="Name">{citizenService.name}</td>
+
+                  <td data-label="Description" className="description-cell">
+                    {citizenService.description}
                   </td>
-                  <td>{citizenService.requiresPhysicalPresence ? 'true' : 'false'}</td>
+
+                  <td data-label="Duration">
+                    {citizenService.estimatedDuration}{' '}
+                    <span className="text-muted small">
+                      <Translate contentKey={`citizenServicesApp.EstimatedTimeUnit.${citizenService.estimatedDurationUnit}`} />
+                    </span>
+                  </td>
+
+                  <td data-label="Physical Presence">{citizenService.requiresPhysicalPresence ? 'true' : 'false'}</td>
+                  {/*
                   <td>{citizenService.isElectronic ? 'true' : 'false'}</td>
                   <td>
                     {citizenService.serviceLink ? (
@@ -184,8 +196,11 @@ export const CitizenService = () => {
                       ''
                     )}
                   </td>
-                  <td>{citizenService.hasSmartCard ? 'true' : 'false'}</td>
-                  <td>{citizenService.feesDescription}</td>
+                  */}
+                  <td data-label="Smart Card">{citizenService.hasSmartCard ? 'true' : 'false'}</td>
+
+                  <td data-label="Fees">{citizenService.feesDescription}</td>
+                  {/*
                   <td>{citizenService.active ? 'true' : 'false'}</td>
                   <td>
                     {citizenService.category ? (
@@ -194,7 +209,8 @@ export const CitizenService = () => {
                       ''
                     )}
                   </td>
-                  <td className="text-end">
+                  */}
+                  <td className="text-end actions-cell">
                     <div className="btn-group flex-btn-group-container">
                       <Button tag={Link} to={`/citizen-service/${citizenService.id}`} color="info" size="sm" data-cy="entityDetailsButton">
                         <FontAwesomeIcon icon="eye" />{' '}

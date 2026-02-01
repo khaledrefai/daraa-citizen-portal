@@ -96,9 +96,41 @@ $text-light: #e9f3f0;
   .brand-icon img { height: 50px; }
   .brand-text { display: flex; flex-direction: column; text-align: right; }
 
-  @media (max-width: 991px) {
-    .brand-icon img { height: 40px; }
-    .brand-title { font-size: 1.1rem; }
-    .brand-subtitle { display: none; }
+  &:hover {
+    text-decoration: none;
   }
+
+  .brand-icon {
+    height: 42px;
+    width: auto;
+    display: flex;
+    padding: 4px;
+    border-radius: 0.65rem;
+    background-color: rgba(233, 243, 240, 0.12);
+    border: 1px solid rgba(233, 243, 240, 0.15);
+
+    img {
+      width: 48px;
+      height: auto;
+    }
+  }
+}
+
+.brand-title {
+  font-size: 1.35rem;
+  color: $header-color;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  &:hover {
+    color: $header-color-hover;
+    text-decoration: none;
+  }
+}
+
+.loading-bar {
+  height: 3px;
+  background-color: #428177;
+  position: absolute;
+  top: 0;
+  z-index: 1031;
 }

@@ -75,7 +75,7 @@ export const ServiceFormTemplateUpdate = () => {
   return (
     <div>
       <Row className="justify-content-center">
-        <Col md="8">
+        <Col md="10" lg="8" className="entity-detail-card">
           <h2 id="citizenServicesApp.serviceFormTemplate.home.createOrEditLabel" data-cy="ServiceFormTemplateCreateUpdateHeading">
             <Translate contentKey="citizenServicesApp.serviceFormTemplate.home.createOrEditLabel">
               Create or edit a ServiceFormTemplate
@@ -84,7 +84,7 @@ export const ServiceFormTemplateUpdate = () => {
         </Col>
       </Row>
       <Row className="justify-content-center">
-        <Col md="8">
+        <Col md="10" lg="8" className="entity-detail-card">
           {loading ? (
             <p>Loading...</p>
           ) : (
@@ -165,19 +165,21 @@ export const ServiceFormTemplateUpdate = () => {
                     ))
                   : null}
               </ValidatedField>
-              <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/service-form-template" replace color="info">
-                <FontAwesomeIcon icon="arrow-left" />
+              <div className="btn-group flex-btn-group-container">
+                <Button tag={Link} id="cancel-save" data-cy="entityCreateCancelButton" to="/service-form-template" replace color="info">
+                  <FontAwesomeIcon icon="arrow-left" />
+                  &nbsp;
+                  <span className="d-none d-md-inline">
+                    <Translate contentKey="entity.action.back">Back</Translate>
+                  </span>
+                </Button>
                 &nbsp;
-                <span className="d-none d-md-inline">
-                  <Translate contentKey="entity.action.back">Back</Translate>
-                </span>
-              </Button>
-              &nbsp;
-              <Button color="primary" id="save-entity" data-cy="entityCreateSaveButton" type="submit" disabled={updating}>
-                <FontAwesomeIcon icon="save" />
-                &nbsp;
-                <Translate contentKey="entity.action.save">Save</Translate>
-              </Button>
+                <Button color="primary" id="save-entity" data-cy="entityCreateSaveButton" type="submit" disabled={updating}>
+                  <FontAwesomeIcon icon="save" />
+                  &nbsp;
+                  <Translate contentKey="entity.action.save">Save</Translate>
+                </Button>
+              </div>
             </ValidatedForm>
           )}
         </Col>
