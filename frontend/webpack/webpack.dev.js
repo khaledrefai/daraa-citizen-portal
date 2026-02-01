@@ -58,14 +58,14 @@ module.exports = async options =>
         directory: './target/classes/static/',
       },
       port: DEV_SERVER_PORT,
-      // proxy: [
-      //   {
-      //     context: ['/api', '/services', '/management', '/v3/api-docs', '/h2-console'],
-      //     target: `http${options.tls ? 's' : ''}://173.212.199.139:8084`,
-      //     secure: false,
-      //     changeOrigin: options.tls,
-      //   },
-      // ],
+        proxy: [
+          {
+            context: ['/api', '/services', '/management', '/v3/api-docs', '/h2-console'],
+            target: `http${options.tls ? 's' : ''}://localhost:8084`,
+            secure: false,
+            changeOrigin: options.tls,
+          },
+        ],
       historyApiFallback: true,
     },
     stats: process.env.JHI_DISABLE_WEBPACK_LOGS ? 'none' : options.stats,

@@ -1,0 +1,84 @@
+.footer-main {
+  color: #fff;
+}
+
+.footer-gradient {
+  background: linear-gradient(135deg, #1b5f8a 0%, #113f63 100%);
+}
+
+.footer-content-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.footer-title {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.footer-subtitle {
+  margin: 0;
+  opacity: 0.9;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-social-section .social-icons-list {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  text-decoration: none;
+  transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.social-icon:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.x-text {
+  font-weight: 700;
+}
+
+.contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-list .icon {
+  margin-inline-end: 0.5rem;
+}
+
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer-bottom {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.developer-tag {
+  margin: 0;
+  opacity: 0.85;
+}
