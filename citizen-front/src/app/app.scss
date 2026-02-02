@@ -1,0 +1,115 @@
+@import url('https://fonts.cdnfonts.com/css/qumra');
+// Override Bootstrap variables
+@import 'bootstrap-variables';
+// Import Bootstrap source files from node_modules
+@import 'bootstrap/scss/bootstrap';
+
+:root {
+  --color-primary: #428177;
+  --color-secondary: #054239;
+  --color-deep: #002623;
+  --color-cream: #f5f7f6;
+  --color-text: #0f2b24;
+}
+
+html {
+  direction: rtl;
+  font-size: 16px;
+}
+
+body {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(66, 129, 119, 0.08), transparent 35%),
+    radial-gradient(circle at 90% 10%, rgba(0, 38, 35, 0.08), transparent 30%), var(--color-cream);
+  color: var(--color-text);
+  margin: 0;
+  font-family: 'Qumra', 'Cairo', 'Noto Naskh Arabic', 'Tahoma', sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+  font-weight: 500;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  direction: rtl;
+  text-align: right;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Qumra', 'Cairo', 'Noto Naskh Arabic', 'Tahoma', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  line-height: 1.4;
+}
+
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+}
+
+body[dir='rtl'] {
+  .ms-2 {
+    margin-left: 0 !important;
+    margin-right: 0.5rem !important;
+  }
+
+  .ms-auto {
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+}
+
+a {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    color: lighten(#428177, 6%);
+    text-decoration: underline;
+  }
+}
+
+* {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  &:after,
+  &::before {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+}
+
+.app-container {
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, rgba(0, 38, 35, 0.04) 0%, rgba(5, 66, 57, 0.02) 45%, rgba(66, 129, 119, 0.05) 100%);
+
+  .view-container {
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1.5rem;
+
+    .card {
+      padding: 1.25rem;
+      border: 1px solid rgba(0, 38, 35, 0.08);
+      box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.06);
+      border-radius: 1rem;
+      background-color: #ffffff;
+    }
+  }
+}
+
+.footer-gradient {
+  background: linear-gradient(115deg, #002623 0%, #054239 55%, #428177 100%);
+}

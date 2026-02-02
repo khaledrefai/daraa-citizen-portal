@@ -1,0 +1,53 @@
+{
+  "name": "citizen-front",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Citizen Services Portal - Daraa Governorate",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "webpack serve --config webpack/webpack.dev.js --env stats=minimal",
+    "build": "webpack --config webpack/webpack.prod.js --progress=profile"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "6.7.2",
+    "@fortawesome/free-brands-svg-icons": "6.7.2",
+    "@fortawesome/free-solid-svg-icons": "6.7.2",
+    "@fortawesome/react-fontawesome": "0.2.2",
+    "axios": "1.9.0",
+    "bootstrap": "5.3.6",
+    "path-browserify": "1.0.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-jhipster": "0.25.3",
+    "react-router-dom": "7.5.3",
+    "reactstrap": "9.2.3"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.25",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "autoprefixer": "10.4.21",
+    "copy-webpack-plugin": "13.0.0",
+    "css-loader": "7.1.2",
+    "folder-hash": "4.1.1",
+    "fork-ts-checker-webpack-plugin": "9.1.0",
+    "html-webpack-plugin": "5.6.3",
+    "merge-jsons-webpack-plugin": "2.0.1",
+    "postcss-loader": "8.1.1",
+    "postcss-rtlcss": "5.7.0",
+    "sass": "1.77.6",
+    "sass-loader": "16.0.5",
+    "simple-progress-webpack-plugin": "2.0.0",
+    "style-loader": "4.0.0",
+    "thread-loader": "4.0.4",
+    "ts-loader": "9.5.2",
+    "typescript": "5.8.3",
+    "webpack": "5.99.8",
+    "webpack-cli": "6.0.1",
+    "webpack-dev-server": "5.2.1",
+    "webpack-merge": "6.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

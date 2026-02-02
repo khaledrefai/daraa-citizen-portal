@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(perl -pi -e 's/\\\\r\\\\n/\\\\n/g':*)",
+      "Bash(powershell -File - <<'PSEOF'\n$files = @\\(\n  'D:\\\\projects\\\\DaraaGov\\\\portal\\\\frontend\\\\src\\\\main\\\\webapp\\\\app\\\\entities\\\\service-form-template\\\\service-form-template-update.tsx',\n  'D:\\\\projects\\\\DaraaGov\\\\portal\\\\frontend\\\\src\\\\main\\\\webapp\\\\app\\\\entities\\\\service-form-template\\\\service-form-template.tsx',\n  'D:\\\\projects\\\\DaraaGov\\\\portal\\\\frontend\\\\src\\\\main\\\\webapp\\\\app\\\\modules\\\\administration\\\\user-management\\\\user-management-detail.tsx',\n  'D:\\\\projects\\\\DaraaGov\\\\portal\\\\frontend\\\\src\\\\main\\\\webapp\\\\app\\\\modules\\\\administration\\\\user-management\\\\user-management.tsx'\n\\)\nforeach \\($f in $files\\) {\n  $content = [System.IO.File]::ReadAllText\\($f\\)\n  $content = $content.Replace\\(\"`r`n\", \"`n\"\\).Replace\\(\"`r\", \"`n\"\\)\n  [System.IO.File]::WriteAllText\\($f, $content, \\(New-Object System.Text.UTF8Encoding $false\\)\\)\n  Write-Host \"Converted: $f\"\n}\nPSEOF)",
+      "Bash(xargs file:*)",
+      "Bash(ls \"d:\\\\projects\\\\DaraaGov\\\\portal\\\\frontend\\\\assets\"\" 2>nul || echo \"No assets dir \")"
+    ]
+  }
+}
