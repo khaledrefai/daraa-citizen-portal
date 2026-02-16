@@ -90,23 +90,18 @@ const CitizenAssistant = () => {
 
   return (
     <div className={`citizen-assistant ${isOpen ? 'open' : ''}`}>
-      <Button color="primary" className="assistant-toggle" onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen}>
-        <FontAwesomeIcon icon={isOpen ? 'times' : 'comments'} />
-        <span className="ms-2">مساعد الخدمات</span>
-      </Button>
-
       {isOpen && (
-        <div className="assistant-card shadow">
+        <div className="assistant-card">
           <div className="assistant-header">
-            <div className="d-flex align-items-center gap-2">
+            <div className="d-flex align-items-center gap-3">
               <FontAwesomeIcon icon="robot" />
               <div>
-                <p className="mb-0 fw-semibold">مساعد بوابة المواطن</p>
-                <small className="text-muted">يبحث في الخدمات ويجيب فوراً</small>
+                <p className="mb-0">مساعد بوابة المواطن</p>
+                <small>اسألني عن أي خدمة</small>
               </div>
             </div>
             <Button size="sm" color="link" className="text-reset" onClick={() => setIsOpen(false)} aria-label="إغلاق المحادثة">
-              <FontAwesomeIcon icon="times" />
+              <FontAwesomeIcon icon="xmark" />
             </Button>
           </div>
 
@@ -115,7 +110,7 @@ const CitizenAssistant = () => {
               <div key={`${message.from}-${index}`} className={`assistant-message ${message.from}`}>
                 <div className="message-bubble">
                   {message.text.split('\n').map((line, lineIndex) => (
-                    <p key={lineIndex} className="mb-1">
+                    <p key={lineIndex}>
                       {line}
                     </p>
                   ))}
@@ -126,18 +121,20 @@ const CitizenAssistant = () => {
             {loading && (
               <div className="assistant-message assistant">
                 <div className="message-bubble d-flex align-items-center gap-2">
-                  <Spinner size="sm" />
-                  <span>يجري التفكير...</span>
+                  <Spinner size="sm" color="primary" />
+                  <span>جاري البحث في الخدمات...</span>
                 </div>
               </div>
             )}
           </div>
 
+          {error && <p className="text-danger">{error}</p>}
+
           <Form onSubmit={handleSend} className="assistant-form">
             <Input
               type="text"
               value={question}
-              placeholder="اكتب سؤالك هنا"
+              placeholder="اكتب سؤالك هنا..."
               onChange={event => setQuestion(event.target.value)}
               disabled={loading}
             />
@@ -145,10 +142,13 @@ const CitizenAssistant = () => {
               {loading ? <Spinner size="sm" /> : <FontAwesomeIcon icon="paper-plane" />}
             </Button>
           </Form>
-
-          {error && <p className="text-danger mt-2 mb-0 small">{error}</p>}
         </div>
       )}
+
+      <Button color="primary" className="assistant-toggle" onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen}>
+        <FontAwesomeIcon icon={isOpen ? 'xmark' : 'comments'} />
+        <span>مساعد الخدمات</span>
+      </Button>
     </div>
   );
 };
