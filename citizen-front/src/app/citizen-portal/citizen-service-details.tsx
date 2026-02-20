@@ -1,7 +1,6 @@
 import './citizen-portal.scss';
 
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import { Alert, Badge, Button, Col, Row, Spinner } from 'reactstrap';
 import { translate } from 'react-jhipster';
@@ -11,6 +10,7 @@ import { ICitizenService } from 'app/shared/model/citizen-service.model';
 import { IRequiredDocument } from 'app/shared/model/required-document.model';
 import { IServiceFormTemplate } from 'app/shared/model/service-form-template.model';
 import CitizenAssistant from './citizen-assistant';
+import { mockCitizenPortalApi } from './services/mock-citizen-portal-api';
 
 const CitizenServiceDetails = () => {
   const { id } = useParams();
@@ -30,14 +30,14 @@ const CitizenServiceDetails = () => {
       setError(null);
       try {
         const [serviceResponse, documentsResponse, templatesResponse] = await Promise.all([
-          axios.get<ICitizenService>(`api/citizen-services/${id}`),
-          axios.get<IRequiredDocument[]>(`api/required-documents?serviceId.equals=${id}&sort=orderIndex,asc`),
-          axios.get<IServiceFormTemplate[]>(`api/service-form-templates?serviceId.equals=${id}&sort=orderIndex,asc`),
+          mockCitizenPortalApi.getCitizenService(id),
+          mockCitizenPortalApi.getRequiredDocumentsByServiceId(id),
+          mockCitizenPortalApi.getServiceFormTemplatesByServiceId(id),
         ]);
 
-        setService(serviceResponse.data);
-        setDocuments(documentsResponse.data);
-        setTemplates(templatesResponse.data.filter(template => template.active));
+        setService(serviceResponse);
+        setDocuments(documentsResponse);
+        setTemplates(templatesResponse.filter(template => template.active));
       } catch (err) {
         setError('citizenPortal.errors.loadService');
       } finally {
@@ -135,25 +135,25 @@ const CitizenServiceDetails = () => {
             <Col md="4">
               <div className="service-detail-card">
                 <h2 className="h5 mb-2">خطوات الاستفادة</h2>
-                <p className="text-muted">اتبع هذه الخطوات السريعة للوصول للخدمة بالطريقة الصحيحة.</p>
+                <p className="text-muted">اتبع هذه الخطوات السريعة للوصول للخدمة بالطريقة الصحيحة</p>
                 <ul className="service-list">
                   <li>
                     <FontAwesomeIcon icon="search" className="text-primary" />
-                    <span className="ms-2">استعرض الخدمة ومتطلباتها.</span>
+                    <span className="ms-2">استعرض الخدمة ومتطلباتها</span>
                   </li>
                   <li>
                     <FontAwesomeIcon icon="save" className="text-primary" />
-                    <span className="ms-2">حضّر المستندات والنماذج.</span>
+                    <span className="ms-2">حضّر المستندات والنماذج</span>
                   </li>
                   <li>
                     <FontAwesomeIcon icon="road" className="text-primary" />
-                    <span className="ms-2">قدّم الطلب للجهة المختصة.</span>
+                    <span className="ms-2">قدّم الطلب للجهة المختصة</span>
                   </li>
                 </ul>
                 {service.isElectronic && (
                   <Alert color="success" className="mt-3 mb-0">
                     <div className="d-flex flex-column gap-2">
-                      <span>هذه الخدمة متاحة إلكترونيًا ويمكن إنجازها بالكامل عبر البوابة.</span>
+                      <span>هذه الخدمة متاحة إلكترونيًا ويمكن إنجازها بالكامل عبر البوابة</span>
                       {service.serviceLink && (
                         <Button
                           tag="a"
@@ -175,7 +175,7 @@ const CitizenServiceDetails = () => {
               <div className="service-detail-card">
                 <h2 className="h5 mb-2">النماذج والملفات</h2>
                 {templates.length === 0 ? (
-                  <p className="text-muted mb-0">لا توجد نماذج مرفوعة لهذه الخدمة حتى الآن.</p>
+                  <p className="text-muted mb-0">لا توجد نماذج مرفوعة لهذه الخدمة حتى الآن</p>
                 ) : (
                   <ul className="service-list">
                     {templates.map(template => (

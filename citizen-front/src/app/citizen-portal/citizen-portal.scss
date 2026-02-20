@@ -146,7 +146,7 @@ $info: #3b82f6;
 
 .directorate-tabs-wrapper {
   flex: 1;
-  overflow-x: auto;
+  overflow-x: hidden;
   position: relative;
   z-index: 1;
   scrollbar-width: thin;
@@ -164,6 +164,7 @@ $info: #3b82f6;
 
 .directorate-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
   padding: 0.25rem 0;
 }
@@ -229,6 +230,14 @@ $info: #3b82f6;
       color: #fff;
     }
   }
+}
+
+.dir-tab-name {
+  line-height: 1.25;
+}
+
+.dir-tab-name--social {
+  font-size: 0.82em;
 }
 
 // Search & Filter Bar
@@ -621,6 +630,8 @@ $info: #3b82f6;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
+  direction: rtl;
+  text-align: right;
   gap: 0.9rem;
   transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -685,7 +696,7 @@ $info: #3b82f6;
 .card-header {
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 0.75rem;
   flex-wrap: wrap;
 }
@@ -703,6 +714,8 @@ $info: #3b82f6;
 .service-tags {
   display: flex;
   flex-wrap: wrap;
+  direction: rtl;
+  justify-content: flex-start;
   gap: 0.35rem;
 }
 
@@ -759,6 +772,14 @@ $info: #3b82f6;
 }
 
 .service-title {
+  direction: rtl;
+  unicode-bidi: isolate;
+  display: block;
+  text-align: end;
+  text-align: right !important;
+  width: 100%;
+  align-self: stretch;
+  margin-inline: 0;
   font-size: 1.05rem;
   font-weight: 800;
   color: $primary-dark;
@@ -772,6 +793,7 @@ $info: #3b82f6;
   margin: 0;
   line-height: 1.55;
   display: -webkit-box;
+  line-clamp: 2;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -780,6 +802,8 @@ $info: #3b82f6;
 .card-meta {
   display: flex;
   flex-wrap: wrap;
+  direction: rtl;
+  justify-content: flex-start;
   gap: 0.75rem;
   padding-top: 0.5rem;
   border-top: 1px dashed $border;
@@ -869,43 +893,179 @@ $info: #3b82f6;
 }
 
 // Responsive
+@media (max-width: 1200px) {
+  .services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
 @media (max-width: 992px) {
+  .citizen-portal-v2 {
+    margin: -1rem;
+  }
+
   .directorate-nav {
     flex-direction: column;
     align-items: stretch;
     gap: 1rem;
+    padding: 1rem 1.25rem;
   }
 
   .nav-brand {
     justify-content: center;
   }
 
+  .directorate-tabs {
+    gap: 0.4rem;
+  }
+
+  .dir-tab {
+    padding: 0.65rem 0.95rem;
+    font-size: 0.85rem;
+  }
+
   .search-filter-bar {
     flex-direction: column;
     align-items: stretch;
+    padding: 1rem 1.25rem;
+    gap: 1rem;
   }
 
   .search-container {
     max-width: none;
+    min-width: 0;
   }
 
   .filter-options {
-    justify-content: space-between;
+    justify-content: flex-start;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    padding: 1rem;
+  }
+
+  .service-card-v2 {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-title {
+    .title-main {
+      font-size: 1.05rem;
+    }
+
+    .title-sub {
+      font-size: 0.78rem;
+    }
+  }
+
+  .nav-logo {
+    height: 44px;
+  }
+
+  .services-content {
+    padding: 0.85rem;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.9rem;
+    padding: 0.85rem;
+  }
+
+  .category-header {
+    padding: 1rem;
+  }
+
+  .category-name {
+    font-size: 1rem;
+  }
+
+  .service-title {
+    font-size: 1.05rem;
   }
 }
 
 @media (max-width: 576px) {
+  .citizen-portal-v2 {
+    margin: -0.75rem;
+  }
+
   .services-grid {
     grid-template-columns: 1fr;
-    padding: 1rem;
+    padding: 0.75rem;
   }
 
   .directorate-nav {
-    padding: 1rem;
+    padding: 0.85rem;
   }
 
   .services-content {
-    padding: 1rem;
+    padding: 0.75rem;
+  }
+
+  .search-filter-bar {
+    padding: 0.85rem;
+  }
+
+  .dir-tab {
+    padding: 0.6rem 0.85rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .directorate-nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .nav-brand {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .nav-title {
+    align-items: center;
+
+    .title-main {
+      font-size: 1rem;
+    }
+
+    .title-sub {
+      font-size: 0.75rem;
+    }
+  }
+
+  .nav-logo {
+    height: 40px;
+  }
+
+  .directorate-tabs-wrapper {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  .directorate-tabs {
+    display: grid !important;
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+
+  .dir-tab {
+    width: 100% !important;
+    justify-content: space-between;
+    white-space: normal;
+    padding: 0.55rem 0.75rem;
+    font-size: 0.78rem;
   }
 }
 
@@ -1063,6 +1223,8 @@ $info: #3b82f6;
 
 .detail-page-header {
   display: flex;
+  direction: rtl;
+  flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
   gap: 1.5rem;
@@ -1074,6 +1236,12 @@ $info: #3b82f6;
   animation: fadeInUp 0.4s ease;
 
   > div:first-child {
+    flex: 1;
+    min-width: 0;
+    text-align: right;
+    direction: rtl;
+    margin-left: auto;
+
     p {
       color: $primary-light;
       font-weight: 600;
@@ -1114,6 +1282,10 @@ $info: #3b82f6;
   margin: 0;
   font-size: 1.5rem;
   color: $primary-dark;
+  direction: rtl;
+  unicode-bidi: isolate;
+  text-align: right !important;
+  width: 100%;
 }
 
 .service-detail-card {
@@ -1229,6 +1401,8 @@ $info: #3b82f6;
   border-radius: 1rem;
   padding: 1rem 1.25rem;
   display: flex;
+  direction: rtl;
+  flex-direction: row-reverse;
   justify-content: space-between;
   gap: 1rem;
   align-items: center;
@@ -1244,6 +1418,7 @@ $info: #3b82f6;
 .breadcrumb-bar .subtitle {
   color: #4b5b56;
   margin: 0;
+  text-align: right;
 }
 
 .detail-layout {

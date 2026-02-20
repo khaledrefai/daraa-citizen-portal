@@ -1,21 +1,9 @@
 import './citizen-portal.scss';
 
 import React, { FormEvent, useEffect, useMemo, useRef, useState } from 'react';
-import axios from 'axios';
 import { Button, Form, Input, Spinner } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-interface AssistantSource {
-  serviceId: number;
-  name: string;
-  description?: string;
-  score?: number;
-}
-
-interface AssistantChatResponse {
-  answer: string;
-  sources: AssistantSource[];
-}
+import { AssistantSource, mockCitizenPortalApi } from './services/mock-citizen-portal-api';
 
 type ChatMessage = {
   from: 'user' | 'assistant';
@@ -58,8 +46,8 @@ const CitizenAssistant = () => {
     setQuestion('');
 
     try {
-      const response = await axios.post<AssistantChatResponse>('api/assistant/chat', { question: userMessage.text });
-      const assistantMessage: ChatMessage = { from: 'assistant', text: response.data.answer, sources: response.data.sources };
+      const response = await mockCitizenPortalApi.chat(userMessage.text);
+      const assistantMessage: ChatMessage = { from: 'assistant', text: response.answer, sources: response.sources };
       setMessages(prev => [...prev, assistantMessage]);
     } catch (err) {
       setError('تعذر إرسال السؤال حالياً. يرجى المحاولة مجدداً.');

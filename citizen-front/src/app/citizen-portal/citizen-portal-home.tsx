@@ -1,7 +1,6 @@
 import './citizen-portal.scss';
 
 import React, { useEffect, useMemo, useState } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { Input, Spinner } from 'reactstrap';
 import { translate } from 'react-jhipster';
@@ -11,6 +10,7 @@ import { ICitizenService } from 'app/shared/model/citizen-service.model';
 import { IServiceCategory } from 'app/shared/model/service-category.model';
 import { IDirectorate } from 'app/shared/model/directorate.model';
 import CitizenAssistant from './citizen-assistant';
+import { mockCitizenPortalApi } from './services/mock-citizen-portal-api';
 
 const durationLabels: Record<string, string> = {
   MINUTE: 'دقيقة',
@@ -36,15 +36,15 @@ const CitizenPortalHome = () => {
       setError(null);
       try {
         const [servicesResponse, categoriesResponse, directoratesResponse] = await Promise.all([
-          axios.get<ICitizenService[]>('api/citizen-services?active.equals=true&sort=name,asc'),
-          axios.get<IServiceCategory[]>('api/service-categories?active.equals=true&sort=name,asc'),
-          axios.get<IDirectorate[]>('api/directorates?active.equals=true&sort=name,asc'),
+          mockCitizenPortalApi.getCitizenServices(),
+          mockCitizenPortalApi.getServiceCategories(),
+          mockCitizenPortalApi.getDirectorates(),
         ]);
-        setServices(servicesResponse.data);
-        setCategories(categoriesResponse.data);
-        setDirectorates(directoratesResponse.data);
+        setServices(servicesResponse);
+        setCategories(categoriesResponse);
+        setDirectorates(directoratesResponse);
         const allCategoryIds = new Set<number>();
-        categoriesResponse.data.forEach(cat => {
+        categoriesResponse.forEach(cat => {
           if (cat.id !== undefined) {
             allCategoryIds.add(cat.id);
           }
@@ -122,6 +122,8 @@ const CitizenPortalHome = () => {
 
   const renderServiceCard = (service: ICitizenService) => (
     <article key={service.id} className="service-card-v2">
+      <h3 className="service-title">{service.name}</h3>
+
       <div className="card-header">
         <div className="service-tags">
           {service.isElectronic && (
@@ -142,7 +144,6 @@ const CitizenPortalHome = () => {
         </div>
       </div>
 
-      <h3 className="service-title">{service.name}</h3>
       <p className="service-desc">{service.description}</p>
 
       <div className="card-meta">
@@ -218,7 +219,7 @@ const CitizenPortalHome = () => {
                   onClick={() => handleDirectorateSelect(directorate.id?.toString() ?? 'all')}
                 >
                   <FontAwesomeIcon icon="building-columns" />
-                  <span>{directorate.name}</span>
+                  <span className={`dir-tab-name ${directorate.name === 'الدعم الاجتماعي' ? 'dir-tab-name--social' : ''}`}>{directorate.name}</span>
                   <span className="tab-count">{count}</span>
                 </button>
               );
@@ -247,22 +248,7 @@ const CitizenPortalHome = () => {
         <div className="filter-options">
           <label className="filter-toggle">
             <input type="checkbox" checked={onlyElectronic} onChange={e => setOnlyElectronic(e.target.checked)} />
-            <span className="toggle-slider"></span>
-            <span className="toggle-label">
-              <FontAwesomeIcon icon="bolt" />
-              إلكترونية فقط
-            </span>
           </label>
-
-          <div className="results-summary">
-            <span className="summary-count">{totalServicesCount}</span>
-            <span className="summary-label">خدمة</span>
-            {selectedDirectorateData && (
-              <span className="summary-filter">
-                في <strong>{selectedDirectorateData.name}</strong>
-              </span>
-            )}
-          </div>
         </div>
       </div>
 

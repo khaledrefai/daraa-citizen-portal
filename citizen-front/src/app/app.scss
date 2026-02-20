@@ -17,6 +17,7 @@ html {
   direction: rtl;
   font-size: 16px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 // Selection styling
@@ -59,6 +60,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   direction: rtl;
   text-align: right;
+  overflow-x: hidden;
 }
 
 h1,
@@ -118,6 +120,7 @@ a {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
   background: linear-gradient(180deg, rgba(0, 38, 35, 0.04) 0%, rgba(5, 66, 57, 0.02) 45%, rgba(66, 129, 119, 0.05) 100%);
 
   .view-container {
@@ -139,4 +142,20 @@ a {
 
 .footer-gradient {
   background: linear-gradient(115deg, #002623 0%, #054239 55%, #428177 100%);
+}
+
+@media (max-width: 992px) {
+  .app-container {
+    .view-container {
+      padding: 1rem;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .app-container {
+    .view-container {
+      padding: 0.75rem;
+    }
+  }
 }

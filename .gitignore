@@ -75,6 +75,7 @@ out/
 /target/
 /backend/target/
 /frontend/target/
+/citizen-front/target/
 
 ######################
 # Gradle
